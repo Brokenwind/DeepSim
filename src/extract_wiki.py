@@ -1,123 +1,100 @@
 import codecs
-import re
 import os
-import bz2file
-import jieba_fast as jieba
-from gensim.corpora.wikicorpus import extract_pages, filter_wiki
+import re
+
 # from gensim.corpora import WikiCorpus
-from tqdm import tqdm
 from opencc import OpenCC
 
-FILE_PATH = '../resources/zhwiki-latest-pages-articles.xml.bz2'
-
-
-def get_wiki():
-    from opencc import OpenCC
-    # 参考这篇博客注释
-    # https://kexue.fm/archives/4176
-    opencc1 = OpenCC("t2s")
-    resub1 = re.compile(':*{\|[\s\S]*?\|}')
-    resub2 = re.compile('<gallery>[\s\S]*?</gallery>')
-    resub3 = re.compile('(.){{([^{}\n]*?\|[^{}\n]*?)}}')
-    resub4 = re.compile('\* *\n|\'{2,}')
-    resub5 = re.compile('\n+')
-    resub6 = re.compile('\n[:;]|\n +')
-    resub7 = re.compile('\n==')
-
-    refind1 = re.compile('^[a-zA-Z]+:')
-    refind2 = re.compile('^#')
-
-    p1 = re.compile(r'-\{.*?(zh-hans|zh-cn):([^;]*?)(;.*?)?\}-')
-    p2 = re.compile(r'[（\(][，；。？！\s]*[）\)]')
-    p3 = re.compile(r'[「『]')
-    p4 = re.compile(r'[」』]')
-
-    def wiki_replace(s):
-        s = filter_wiki(s)
-        s = resub1.sub('', s)
-        s = resub2.sub('', s)
-        s = resub3.sub('\\1[[\\2]]', s)
-        s = resub4.sub('', s)
-        s = resub5.sub('\n', s)
-        s = resub6.sub('\n', s)
-        s = resub7.sub('\n\n==', s)
-        s = p1.sub(r'\2', s)
-        s = p2.sub(r'', s)
-        s = p3.sub(r'“', s)
-        s = p4.sub(r'”', s)
-        return opencc1.convert(s).strip()
-
-    wiki = extract_pages(bz2file.open(FILE_PATH))
-
-    # wiki=WikiCorpus('zhwiki-latest-pages-articles.xml.bz2',lemmatize=False,dictionary={})
-
-    with codecs.open('wiki.txt', 'w', encoding='utf-8') as f:
-        i = 0
-        filelist = []
-        for d in tqdm(wiki):
-            i += 1
-            if i == 5: break
-            continue
-            if not refind1.findall(d[0]) and d[0] and not refind2.findall(d[1]):
-                filelist.append(d[0] + "\n" + d[1])
-                line = d[1]
-                i += 1
-                if i % 100 == 0:
-                    s = wiki_replace("\n\n".join(filelist))
-                    f.write(s)
-                    filelist = []
-
-
-def get_cut_std_wiki():
-    with open("cut_std_wiki.txt", "w", encoding="utf8") as output:
-        with open("std_wiki.txt", "r", encoding="utf8") as file:
-            for line in tqdm(file):
-                output.write(" ".join(list(jieba.cut(line))))
-
-
-def get_wiki2():
-    reobj1 = re.compile(r"[ `~!@#$%^&*\(\)-_=+\[\]\{\}\\\|;:\'\",<.>/?a-zA-Z\d]+")
-    reobj2 = re.compile(r"\n+")
-    reobj3 = re.compile("(（）)|(“”)|(「」)|(《》)|(“”)|(‘’)|(【】)|[，。？——！]{2,}")
-    reuseful = re.compile('^[a-zA-Z]+:')
-    redirect = re.compile(r"^#")
-
-    def wiki_replace(s):
-        s = filter_wiki(s)
-        s = reobj1.sub("", s)  # 为上传阿里云剔除竖线(|)符号
-        s = reobj2.sub("#", s)
-        s = reobj3.sub("", s)
-        return s
-
-    wiki = extract_pages(bz2file.open(FILE_PATH))
-    with codecs.open('wiki-tw.csv', 'w', encoding='utf-8') as f:
-        i = 0
-        filelist = []
-        for d in tqdm(wiki):
-            if not reuseful.findall(d[0]) and not redirect.findall(d[1]):
-                i += 1
-                filelist.append(reobj1.sub("", d[0]) + "|" + wiki_replace(d[1]) + "\n")
-                if i % 1000 == 0:
-                    s = ("".join(filelist))
-                    f.write(s)
-                    filelist = []
-        if filelist:
-            s = ("".join(filelist))
-            f.write(s)
-
-
-def wiki_error():
-    for no, line in enumerate(open("wiki_1.csv", 'r', encoding="utf8")):
-        pair = line.split("|")
-        if len(pair) > 2:
-            print(no, pair[0], pair[1])
+# 原始wiki文件
+ORIGIN_WIKI_FILE_PATH = '../resources/zhwiki-latest-pages-articles.xml.bz2'
+# wiki信息提取后的文件
+EXTRACTED_WIKI_FILE_PATH = '../resources/zhwiki/'
+# 经过去除无用字符，繁体转简体后的文件
+PROCESSED_WIKI_FILE_PATH = '../resources/std/'
 
 
 def extract_wiki(file_path):
     os.system('WikiExtractor.py -b 500M -o zhwiki  ' + file_path)
 
-def convert():
-    pass
+
+def remove_signs(input_file, output_file):
+    '''去掉无用的标点
+    :param input_file:
+    :return:
+    '''
+    opencc = OpenCC("t2s")
+    # doc标签以及空白行
+    p0 = re.compile(r'<doc.*>|</doc>|^$|^\s$')
+    # 存在这样的：-{H|zh-hant:心裡學;zh-hans:心里学;}-,是标题
+    p1 = re.compile(r'-\{.*?(zh-hans|zh-cn):([^;]*?)(;.*?)?\}-')
+    p2 = re.compile(r'[（\(][，；。？！\s]*[）\)]')
+    # 这种符号都替换为中文引号
+    p3 = re.compile(r'[「『]')
+    # 这种符号都替换为中文引号
+    p4 = re.compile(r'[」』]')
+    # 英文标点符号,都需要去除
+    p5 = re.compile(r"[ `~!@#$%^&*\(\)\-_=+\[\]\{\}\\\|;:\'\",<.>/?a-zA-Z\d]+")
+    # 引号或者括号中为空，或者标点符号之间为空，都需要去除
+    p6 = re.compile("(（）)|(“”)|(「」)|(《》)|(“”)|(‘’)|(【】)|[，。？——！]{2,}")
+
+    # (file_path, file_name) = os.path.split(input_file)
+    outfile = codecs.open(output_file, 'w', 'utf-8')
+    with codecs.open(input_file, 'r', 'utf-8') as myfile:
+        for line in myfile:
+            # 丢弃空白行以及含有<doc>标签的行
+            if re.match(p0, line):
+                continue
+            # \2 的意思正则表达式的第几个moudle
+            line = p1.sub(r'\2', line)
+            line = p1.sub(r'', line)
+            line = p2.sub(r'', line)
+            line = p3.sub(r'“', line)
+            line = p4.sub(r'”', line)
+            line = p5.sub(r'', line)
+            line = p6.sub(r'', line)
+
+            # 繁体转简体
+            line = opencc.convert(line)
+            outfile.write(line)
+    outfile.close()
+
+
+def remove_unusable_all(input_path, output_path):
+    '''
+    去除经过WikiExtractor提取后的无用符号,并输出到新文件夹
+    :param input_path:
+    :return:
+    '''
+    # 获取绝对目录
+    input_path = os.path.abspath(input_path)
+    if not os.path.exists(input_path):
+        raise RuntimeError("Not found input_path")
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+    # 处理每一个文件,新生成的文件与旧文件同名
+    for cur_file in list_all_files(input_path):
+        (file_path, file_name) = os.path.split(cur_file)
+        remove_signs(cur_file, os.path.join(output_path, file_name))
+
+
+def list_all_files(rootdir):
+    '''
+    # 列出文件夹下所有文件,包括子目录
+    :param rootdir:
+    :return:
+    '''
+    _files = []
+    list = os.listdir(rootdir)
+    for i in range(0, len(list)):
+        path = os.path.join(rootdir, list[i])
+        if os.path.isdir(path):
+            _files.extend(list_all_files(path))
+        if os.path.isfile(path):
+            _files.append(path)
+
+    return _files
+
 
 if __name__ == '__main__':
-    extract_wiki(FILE_PATH)
+    # extract_wiki(FILE_PATH)
+    remove_unusable_all(EXTRACTED_WIKI_FILE_PATH, PROCESSED_WIKI_FILE_PATH)

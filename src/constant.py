@@ -18,3 +18,7 @@ ANT_NLP_FILE_PATH = '../data/atec_nlp_sim.csv'
 CHAR_LEVEL_CORPUS = '../data/train_char.txt'
 # 单词级别的语料库
 WORD_LEVEL_CORPUS = '../data/train_word.txt'
+# 字符向量或者词嵌入向量维度
+VECTOR_LENGTH = 256
+# 选取的词嵌入算法
+EMBEDDING_MODEL_TYPE = 'gensim'

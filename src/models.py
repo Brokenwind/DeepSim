@@ -1,37 +1,18 @@
-import time
-
-start_time = time.time()
-from constant import *
-import multiprocessing
-import os
-import re
-import json
-import gensim
+'''
+这个模块包括了工程中所使用的模型的定义
+1. Decomposable Attention
+2. ESIM网络
+3. Siamese网络
+4. DSSM网络
+'''
 import logging
-import jieba
-import keras
-import keras.backend as K
-import numpy as np
-import pandas as pd
+
 from keras.activations import softmax
-from keras.callbacks import EarlyStopping, ModelCheckpoint, LambdaCallback, Callback, ReduceLROnPlateau, \
-    LearningRateScheduler
 from keras.layers import *
 from keras.models import Model
-from keras.optimizers import SGD, Adadelta, Adam, Nadam, RMSprop
-from keras.regularizers import L1L2, l2
-from keras.preprocessing.sequence import pad_sequences
-from keras.engine.topology import Layer
-from keras import initializers, regularizers, constraints
+from keras.regularizers import L1L2
 
-from sklearn.linear_model import LogisticRegression, LogisticRegressionCV
-from sklearn.metrics import f1_score
-from sklearn.model_selection import train_test_split, KFold
-from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier
-
-from gensim.models.word2vec import LineSentence
-from gensim.models.fasttext import FastText
-import copy
+from constant import *
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
@@ -441,4 +422,5 @@ def DSSM(pretrained_embedding, input_length, lstmsize=90):
     res = Dense(1, activation='sigmoid')(matchlist)
 
     model = Model(inputs=[input1, input2, input1c, input2c], outputs=res)
+
     return model

@@ -36,6 +36,30 @@ from models import *
 from swa import SWA
 
 
+class LR_Updater(Callback):
+    '''
+    Abstract class where all Learning Rate updaters inherit from. (e.g., CircularLR)
+    Calculates and updates new learning rate and momentum at the end of each batch.
+    Have to be extended.
+    '''
+
+    def __init__(self, init_lrs):
+        self.init_lrs = init_lrs
+
+    def on_train_begin(self, logs=None):
+        self.update_lr()
+
+    def on_batch_end(self, batch, logs=None):
+        self.update_lr()
+
+    def update_lr(self):
+        # cur_lrs = K.get_value(self.model.optimizer.lr)
+        new_lrs = self.calc_lr(self.init_lrs)
+        K.set_value(self.model.optimizer.lr, new_lrs)
+
+    def calc_lr(self, init_lrs): raise NotImplementedError
+
+
 class CircularLR(LR_Updater):
     '''
     A learning rate updater that implements the CircularLearningRate (CLR) scheme.
@@ -65,6 +89,58 @@ class CircularLR(LR_Updater):
         return res
 
 
+class CircularLR(LR_Updater):
+    '''
+    A learning rate updater that implements the CircularLearningRate (CLR) scheme.
+    Learning rate is increased then decreased linearly.
+    '''
+
+    def __init__(self, init_lrs, nb, div=4, cut_div=8, on_cycle_end=None):
+        self.nb, self.div, self.cut_div, self.on_cycle_end = nb, div, cut_div, on_cycle_end
+        super().__init__(init_lrs)
+
+    def on_train_begin(self, logs=None):
+        self.cycle_iter, self.cycle_count = 0, 0
+        super().on_train_begin()
+
+    def calc_lr(self, init_lrs):
+        cut_pt = self.nb // self.cut_div
+        if self.cycle_iter > cut_pt:
+            pct = 1 - (self.cycle_iter - cut_pt) / (self.nb - cut_pt)
+        else:
+            pct = self.cycle_iter / cut_pt
+        res = init_lrs * (1 + pct * (self.div - 1)) / self.div
+        self.cycle_iter += 1
+        if self.cycle_iter == self.nb:
+            self.cycle_iter = 0
+            if self.on_cycle_end: self.on_cycle_end(self, self.cycle_count)
+            self.cycle_count += 1
+        return res
+
+
+class TimerStop(Callback):
+    """docstring for TimerStop"""
+
+    def __init__(self, start_time, total_seconds):
+        super(TimerStop, self).__init__()
+        self.start_time = start_time
+        self.total_seconds = total_seconds
+        self.epoch_seconds = []
+
+    def on_epoch_begin(self, epoch, logs=None):
+        self.epoch_start = time.time()
+
+    def on_epoch_end(self, epoch, logs=None):
+        self.epoch_seconds.append(time.time() - self.epoch_start)
+
+        mean_epoch_seconds = sum(self.epoch_seconds) / len(self.epoch_seconds)
+        if time.time() + mean_epoch_seconds > self.start_time + self.total_seconds:
+            self.model.stop_training = True
+
+    def on_train_end(self, logs=None):
+        print('timer stopping')
+
+
 def get_model(cfg, model_weights=None):
     print("=======   CONFIG: ", cfg)
 
@@ -92,8 +168,21 @@ def get_model(cfg, model_weights=None):
     if model_weights is not None:
         model.load_weights(model_weights)
 
-    # keras.utils.plot_model(model, to_file=model_dir+model_type+"_"+dtype+'.png', show_shapes=True, show_layer_names=True, rankdir='TB')
+    # keras.utils.plot_model(model, to_file=MODEL_DIR+model_type+"_"+dtype+'.png', show_shapes=True, show_layer_names=True, rankdir='TB')
     return model
+
+
+def save_config(filepath, cfg):
+    '''
+    保存配置
+    :param filepath:
+    :param cfg:
+    :return:
+    '''
+    configs = {}
+    if os.path.exists(CONFIG_PATH): configs = json.loads(open(CONFIG_PATH, "r", encoding="utf8").read())
+    configs[filepath] = cfg
+    open(CONFIG_PATH, "w", encoding="utf8").write(json.dumps(configs, indent=2, ensure_ascii=False))
 
 
 def train_model(model, swa_model, cfg):
@@ -102,7 +191,7 @@ def train_model(model, swa_model, cfg):
     data = load_data(dtype, input_length, w2v_length)
     train_x, train_y, test_x, test_y = split_data(data)
     # 每次运行的模型都进行保存，不覆盖之前的结果
-    filepath = model_dir + model_type + "_" + dtype + time.strftime("_%m-%d %H-%M-%S") + ".h5"
+    filepath = os.path.join(MODEL_DIR, model_type + "_" + dtype + time.strftime("_%m-%d %H-%M-%S") + ".h5")
     checkpoint = ModelCheckpoint(filepath, monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=True,
                                  mode='auto')
     earlystop = EarlyStopping(monitor='val_loss', min_delta=0, patience=patience, verbose=0, mode='auto')
@@ -133,7 +222,7 @@ def train_model(model, swa_model, cfg):
     model.compile(optimizer=Adam(lr=init_lrs, beta_1=0.8), loss=loss, metrics=metrics)
     fit()
 
-    filepath_swa = model_dir + filepath.split("/")[-1].split(".")[0] + "-swa.h5"
+    filepath_swa = os.path.join(MODEL_DIR, filepath.split("/")[-1].split(".")[0] + "-swa.h5")
     swa_cbk.swa_model.save_weights(filepath_swa)
 
     # 保存配置，方便多模型集成
@@ -147,3 +236,6 @@ def train_all_models(index):
     model = get_model(cfg, None)
     swa_model = get_model(cfg, None)
     train_model(model, swa_model, cfg)
+
+if __name__ == '__main__':
+    train_all_models(0)

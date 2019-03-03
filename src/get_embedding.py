@@ -12,6 +12,7 @@ import pandas as pd
 import jieba_fast as jieba
 from keras.preprocessing.sequence import pad_sequences
 from gensim.models.fasttext import FastText
+from sklearn.model_selection import train_test_split, KFold
 
 # 下边引入自定义模块
 from keras.layers import *
@@ -91,7 +92,7 @@ def load_data(dtype="both", input_length=[20, 24], w2v_length=VECTOR_LENGTH):
     :param dtype:
     :param input_length:
     :param w2v_length:
-    :return:
+    :return: 返回是一个list,每一个元素也是list, 表示一个句子的字符/词语的索引列表
     '''
 
     def __load_data(dtype="word", input_length=20, w2v_length=VECTOR_LENGTH):
@@ -169,6 +170,36 @@ def input_data(sentence1, sentence2, dtype="both", input_length=[20, 24]):
         return ret_array
     else:
         return __input_data(sentence1, sentence2, dtype, input_length)
+
+
+def split_data(data, mode="train", test_size=test_size, random_state=random_state):
+    '''
+    训练集和测试集合\划分
+    :param data:
+      mode == "train":  划分成用于训练的四元组
+      mode == "orig":   划分成两组数据
+    :param mode:
+    :param test_size:
+    :param random_state:
+    :return:
+    '''
+
+    train = []
+    test = []
+    for data_i in data:
+        # 快速调试
+        if FAST_MODE:
+            data_i, _ = train_test_split(data_i, test_size=1 - FAST_RATE, random_state=random_state)
+        train_data, test_data = train_test_split(data_i, test_size=test_size, random_state=random_state)
+        train.append(np.asarray(train_data))
+        test.append(np.asarray(test_data))
+
+    if mode == "orig":
+        return train, test
+
+    train_x, train_y, test_x, test_y = train[:-1], train[-1], test[:-1], test[-1]
+
+    return train_x, train_y, test_x, test_y
 
 
 if __name__ == '__main__':

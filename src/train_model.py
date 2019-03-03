@@ -206,7 +206,9 @@ def train_model(model, swa_model, cfg):
     print("total iters per cycle(epoch):", total_iterators)
     circular_lr = CircularLR(init_lrs, total_iterators, on_cycle_end=None, div=clr_div, cut_div=cut_div)
     callbacks = [checkpoint, earlystop, swa_cbk, circular_lr]
-    callbacks.append(TimerStop(start_time=start_time, total_seconds=7100))
+
+    # 当训练达到一定的时间后就停止训练
+    # callbacks.append(TimerStop(start_time=start_time, total_seconds=7100))
 
     def fit(n_epoch=n_epoch):
         history = model.fit(x=train_x, y=train_y,
@@ -236,6 +238,7 @@ def train_all_models(index):
     model = get_model(cfg, None)
     swa_model = get_model(cfg, None)
     train_model(model, swa_model, cfg)
+
 
 if __name__ == '__main__':
     train_all_models(0)

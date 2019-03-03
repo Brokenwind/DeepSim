@@ -232,13 +232,16 @@ def train_model(model, swa_model, cfg):
     save_config(filepath_swa, cfg)
 
 
-def train_all_models(index):
-    cfg = cfgs[index]
-    K.clear_session()
-    model = get_model(cfg, None)
-    swa_model = get_model(cfg, None)
-    train_model(model, swa_model, cfg)
+def train_all_models():
+    count = 0
+    for cfg in cfgs:
+        count += 1
+        print("start %d model train" % count)
+        K.clear_session()
+        model = get_model(cfg, None)
+        swa_model = get_model(cfg, None)
+        train_model(model, swa_model, cfg)
 
 
 if __name__ == '__main__':
-    train_all_models(0)
+    train_all_models()

@@ -9,7 +9,7 @@ import gensim
 import jieba_fast as jieba
 from gensim.models.word2vec import LineSentence
 
-from src import extract_wiki
+import  extract_wiki
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = '3'
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)

@@ -2,6 +2,9 @@
 这里定义项目用到的常量
 '''
 
+###################################################
+# 数据相关参数
+###################################################
 # 原始wiki文件
 ORIGIN_WIKI_FILE_PATH = '../resources/zhwiki-latest-pages-articles.xml.bz2'
 # wiki信息提取后的文件
@@ -18,7 +21,20 @@ ANT_NLP_FILE_PATH = '../data/atec_nlp_sim.csv'
 CHAR_LEVEL_CORPUS = '../data/train_char.txt'
 # 单词级别的语料库
 WORD_LEVEL_CORPUS = '../data/train_word.txt'
+
+###################################################
+# 词向量相关参数
+###################################################
 # 字符向量或者词嵌入向量维度
 VECTOR_LENGTH = 256
 # 选取的词嵌入算法
 EMBEDDING_MODEL_TYPE = 'gensim'
+
+###################################################
+# 训练相关参数
+###################################################
+MAX_LEN = 30
+MAX_EPOCH = 90
+train_batch_size = 64
+test_batch_size = 500
+earlystop_patience, plateau_patience = 8, 2

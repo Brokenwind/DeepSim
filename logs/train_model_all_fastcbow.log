@@ -1,0 +1,336 @@
+nohup: ignoring input
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+INFO:starting loading embedding
+DEBUG:{'kw': {}, 'uri': '../model/char2vec_fastcbow256.bin', 'mode': 'rb'}
+INFO:loading 11474 words for fastText model from ../model/char2vec_fastcbow256.bin
+INFO:resetting layer weights
+INFO:Total number of ngrams is 0
+INFO:Updating model with new vocabulary
+INFO:New added 11474 unique words (50% of original 22948) and increased the count of 11474 pre-existing words (50% of original 22948)
+INFO:deleting the raw counts dictionary of 11474 items
+INFO:sample=0.0001 downsamples 1636 most-common words
+INFO:downsampling leaves estimated 353425077 word corpus (102.2% of prior 345851916)
+INFO:loaded (2011474, 256) weight matrix for fastText model from ../model/char2vec_fastcbow256.bin
+DEBUG:{'kw': {}, 'uri': '../model/word2vec_fastcbow256.bin', 'mode': 'rb'}
+INFO:loading 482750 words for fastText model from ../model/word2vec_fastcbow256.bin
+INFO:resetting layer weights
+INFO:Total number of ngrams is 0
+INFO:Updating model with new vocabulary
+INFO:New added 482750 unique words (50% of original 965500) and increased the count of 482750 pre-existing words (50% of original 965500)
+INFO:deleting the raw counts dictionary of 482750 items
+INFO:sample=0.0001 downsamples 710 most-common words
+INFO:downsampling leaves estimated 272504639 word corpus (147.3% of prior 185032399)
+INFO:loaded (2482750, 256) weight matrix for fastText model from ../model/word2vec_fastcbow256.bin
+INFO:end loading embedding
+2019-03-04 11:35:34.595150: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2019-03-04 11:35:35.578831: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:964] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2019-03-04 11:35:35.579331: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties: 
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:00:04.0
+totalMemory: 11.17GiB freeMemory: 11.09GiB
+2019-03-04 11:35:35.579362: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-04 11:35:48.954198: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-04 11:35:48.954293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-04 11:35:48.954307: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-04 11:35:48.954819: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+start 1 model train
+=======   CONFIG:  ('siamese', 'char', 24, 'fastcbow', 256, [100, 80, 64, 64], 97, 8)
+=======   CONFIG:  ('siamese', 'char', 24, 'fastcbow', 256, [100, 80, 64, 64], 97, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/97
+ - 250s - loss: 19.7086 - binary_crossentropy: 0.6488 - acc: 0.8154 - val_loss: 0.8852 - val_binary_crossentropy: 0.5587 - val_acc: 0.8158
+Epoch 2/97
+ - 238s - loss: 1.7552 - binary_crossentropy: 0.6217 - acc: 0.8167 - val_loss: 0.7964 - val_binary_crossentropy: 0.5600 - val_acc: 0.8158
+Epoch 3/97
+ - 239s - loss: 1.6040 - binary_crossentropy: 0.6070 - acc: 0.8172 - val_loss: 0.7476 - val_binary_crossentropy: 0.5526 - val_acc: 0.8173
+Epoch 4/97
+ - 238s - loss: 1.5527 - binary_crossentropy: 0.5988 - acc: 0.8177 - val_loss: 0.7278 - val_binary_crossentropy: 0.5396 - val_acc: 0.8181
+Epoch 5/97
+ - 238s - loss: 1.5427 - binary_crossentropy: 0.5928 - acc: 0.8176 - val_loss: 0.7366 - val_binary_crossentropy: 0.5496 - val_acc: 0.8169
+Epoch 6/97
+ - 239s - loss: 1.5288 - binary_crossentropy: 0.5893 - acc: 0.8175 - val_loss: 0.7265 - val_binary_crossentropy: 0.5448 - val_acc: 0.8181
+Epoch 7/97
+ - 239s - loss: 1.5032 - binary_crossentropy: 0.5838 - acc: 0.8176 - val_loss: 0.7003 - val_binary_crossentropy: 0.5259 - val_acc: 0.8173
+Epoch 8/97
+ - 239s - loss: 1.4979 - binary_crossentropy: 0.5804 - acc: 0.8177 - val_loss: 0.7182 - val_binary_crossentropy: 0.5374 - val_acc: 0.8185
+Epoch 9/97
+ - 239s - loss: 1.4776 - binary_crossentropy: 0.5789 - acc: 0.8178 - val_loss: 0.7083 - val_binary_crossentropy: 0.5399 - val_acc: 0.8173
+Epoch 10/97
+ - 239s - loss: 1.4688 - binary_crossentropy: 0.5755 - acc: 0.8177 - val_loss: 0.7241 - val_binary_crossentropy: 0.5603 - val_acc: 0.8169
+Epoch 11/97
+ - 239s - loss: 1.4459 - binary_crossentropy: 0.5721 - acc: 0.8177 - val_loss: 0.7062 - val_binary_crossentropy: 0.5478 - val_acc: 0.8181
+Epoch 12/97
+ - 239s - loss: 1.4376 - binary_crossentropy: 0.5699 - acc: 0.8177 - val_loss: 0.6896 - val_binary_crossentropy: 0.5354 - val_acc: 0.8173
+Epoch 13/97
+ - 239s - loss: 1.4338 - binary_crossentropy: 0.5692 - acc: 0.8177 - val_loss: 0.6671 - val_binary_crossentropy: 0.5124 - val_acc: 0.8173
+Epoch 14/97
+ - 239s - loss: 1.4356 - binary_crossentropy: 0.5675 - acc: 0.8177 - val_loss: 0.6786 - val_binary_crossentropy: 0.5260 - val_acc: 0.8177
+Epoch 15/97
+ - 239s - loss: 1.4296 - binary_crossentropy: 0.5651 - acc: 0.8177 - val_loss: 0.6971 - val_binary_crossentropy: 0.5445 - val_acc: 0.8177
+Epoch 16/97
+ - 239s - loss: 1.4228 - binary_crossentropy: 0.5638 - acc: 0.8178 - val_loss: 0.6890 - val_binary_crossentropy: 0.5387 - val_acc: 0.8177
+Epoch 17/97
+ - 239s - loss: 1.4115 - binary_crossentropy: 0.5610 - acc: 0.8177 - val_loss: 0.6888 - val_binary_crossentropy: 0.5403 - val_acc: 0.8177
+Epoch 18/97
+ - 239s - loss: 1.4058 - binary_crossentropy: 0.5616 - acc: 0.8177 - val_loss: 0.6987 - val_binary_crossentropy: 0.5506 - val_acc: 0.8181
+Epoch 19/97
+ - 239s - loss: 1.4032 - binary_crossentropy: 0.5592 - acc: 0.8177 - val_loss: 0.6942 - val_binary_crossentropy: 0.5475 - val_acc: 0.8177
+Epoch 20/97
+ - 239s - loss: 1.3994 - binary_crossentropy: 0.5564 - acc: 0.8177 - val_loss: 0.6784 - val_binary_crossentropy: 0.5324 - val_acc: 0.8181
+Epoch 21/97
+ - 239s - loss: 1.4078 - binary_crossentropy: 0.5583 - acc: 0.8177 - val_loss: 0.6808 - val_binary_crossentropy: 0.5302 - val_acc: 0.8177
+2019-03-04 12:59:59.394024: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-04 12:59:59.394096: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-04 12:59:59.394109: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-04 12:59:59.394117: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-04 12:59:59.394241: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+start 2 model train
+=======   CONFIG:  ('siamese', 'word', 20, 'fastcbow', 256, [100, 80, 64, 64], 116, 8)
+=======   CONFIG:  ('siamese', 'word', 20, 'fastcbow', 256, [100, 80, 64, 64], 116, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/116
+ - 370s - loss: 19.6224 - binary_crossentropy: 0.6519 - acc: 0.8156 - val_loss: 0.8291 - val_binary_crossentropy: 0.5222 - val_acc: 0.8119
+Epoch 2/116
+ - 367s - loss: 1.8195 - binary_crossentropy: 0.6404 - acc: 0.8160 - val_loss: 0.8689 - val_binary_crossentropy: 0.5993 - val_acc: 0.8146
+Epoch 3/116
+ - 368s - loss: 1.7526 - binary_crossentropy: 0.6370 - acc: 0.8158 - val_loss: 0.8083 - val_binary_crossentropy: 0.5559 - val_acc: 0.8123
+Epoch 4/116
+ - 367s - loss: 1.6797 - binary_crossentropy: 0.6295 - acc: 0.8162 - val_loss: 0.8216 - val_binary_crossentropy: 0.6023 - val_acc: 0.8162
+Epoch 5/116
+ - 367s - loss: 1.6446 - binary_crossentropy: 0.6266 - acc: 0.8165 - val_loss: 0.7808 - val_binary_crossentropy: 0.5725 - val_acc: 0.8150
+Epoch 6/116
+ - 367s - loss: 1.6075 - binary_crossentropy: 0.6169 - acc: 0.8170 - val_loss: 0.7528 - val_binary_crossentropy: 0.5560 - val_acc: 0.8165
+Epoch 7/116
+ - 367s - loss: 1.5881 - binary_crossentropy: 0.6111 - acc: 0.8171 - val_loss: 0.7429 - val_binary_crossentropy: 0.5537 - val_acc: 0.8138
+Epoch 8/116
+ - 368s - loss: 1.5731 - binary_crossentropy: 0.6056 - acc: 0.8175 - val_loss: 0.7407 - val_binary_crossentropy: 0.5506 - val_acc: 0.8158
+Epoch 9/116
+ - 367s - loss: 1.5686 - binary_crossentropy: 0.6044 - acc: 0.8174 - val_loss: 0.7455 - val_binary_crossentropy: 0.5537 - val_acc: 0.8138
+Epoch 10/116
+ - 367s - loss: 1.5333 - binary_crossentropy: 0.5977 - acc: 0.8176 - val_loss: 0.7062 - val_binary_crossentropy: 0.5355 - val_acc: 0.8169
+Epoch 11/116
+ - 367s - loss: 1.4957 - binary_crossentropy: 0.5950 - acc: 0.8176 - val_loss: 0.6894 - val_binary_crossentropy: 0.5220 - val_acc: 0.8146
+Epoch 12/116
+ - 367s - loss: 1.5066 - binary_crossentropy: 0.5933 - acc: 0.8176 - val_loss: 0.7112 - val_binary_crossentropy: 0.5373 - val_acc: 0.8150
+Epoch 13/116
+ - 368s - loss: 1.4910 - binary_crossentropy: 0.5884 - acc: 0.8176 - val_loss: 0.7322 - val_binary_crossentropy: 0.5653 - val_acc: 0.8162
+Epoch 14/116
+ - 368s - loss: 1.4857 - binary_crossentropy: 0.5877 - acc: 0.8177 - val_loss: 0.7056 - val_binary_crossentropy: 0.5441 - val_acc: 0.8154
+Epoch 15/116
+ - 368s - loss: 1.4634 - binary_crossentropy: 0.5841 - acc: 0.8177 - val_loss: 0.6873 - val_binary_crossentropy: 0.5248 - val_acc: 0.8158
+Epoch 16/116
+ - 368s - loss: 1.4830 - binary_crossentropy: 0.5849 - acc: 0.8177 - val_loss: 0.7162 - val_binary_crossentropy: 0.5532 - val_acc: 0.8158
+Epoch 17/116
+ - 368s - loss: 1.4651 - binary_crossentropy: 0.5814 - acc: 0.8177 - val_loss: 0.6839 - val_binary_crossentropy: 0.5252 - val_acc: 0.8150
+Epoch 18/116
+ - 368s - loss: 1.4560 - binary_crossentropy: 0.5786 - acc: 0.8177 - val_loss: 0.6993 - val_binary_crossentropy: 0.5444 - val_acc: 0.8162
+Epoch 19/116
+ - 368s - loss: 1.4444 - binary_crossentropy: 0.5778 - acc: 0.8177 - val_loss: 0.6577 - val_binary_crossentropy: 0.5046 - val_acc: 0.8154
+Epoch 20/116
+ - 368s - loss: 1.4454 - binary_crossentropy: 0.5760 - acc: 0.8177 - val_loss: 0.6738 - val_binary_crossentropy: 0.5184 - val_acc: 0.8142
+Epoch 21/116
+ - 368s - loss: 1.4348 - binary_crossentropy: 0.5730 - acc: 0.8177 - val_loss: 0.6873 - val_binary_crossentropy: 0.5310 - val_acc: 0.8158
+Epoch 22/116
+ - 368s - loss: 1.4275 - binary_crossentropy: 0.5706 - acc: 0.8177 - val_loss: 0.6742 - val_binary_crossentropy: 0.5233 - val_acc: 0.8162
+Epoch 23/116
+ - 368s - loss: 1.4328 - binary_crossentropy: 0.5691 - acc: 0.8177 - val_loss: 0.6652 - val_binary_crossentropy: 0.5104 - val_acc: 0.8158
+Epoch 24/116
+ - 367s - loss: 1.4269 - binary_crossentropy: 0.5682 - acc: 0.8177 - val_loss: 0.6569 - val_binary_crossentropy: 0.5071 - val_acc: 0.8177
+Epoch 25/116
+ - 368s - loss: 1.4293 - binary_crossentropy: 0.5685 - acc: 0.8177 - val_loss: 0.6636 - val_binary_crossentropy: 0.5095 - val_acc: 0.8169
+Epoch 26/116
+ - 367s - loss: 1.4162 - binary_crossentropy: 0.5649 - acc: 0.8177 - val_loss: 0.6757 - val_binary_crossentropy: 0.5288 - val_acc: 0.8169
+Epoch 27/116
+ - 368s - loss: 1.4121 - binary_crossentropy: 0.5634 - acc: 0.8177 - val_loss: 0.6615 - val_binary_crossentropy: 0.5133 - val_acc: 0.8165
+Epoch 28/116
+ - 367s - loss: 1.4084 - binary_crossentropy: 0.5611 - acc: 0.8177 - val_loss: 0.6479 - val_binary_crossentropy: 0.5008 - val_acc: 0.8181
+Epoch 29/116
+ - 368s - loss: 1.4068 - binary_crossentropy: 0.5601 - acc: 0.8177 - val_loss: 0.6508 - val_binary_crossentropy: 0.5011 - val_acc: 0.8173
+Epoch 30/116
+ - 364s - loss: 1.3974 - binary_crossentropy: 0.5573 - acc: 0.8177 - val_loss: 0.6597 - val_binary_crossentropy: 0.5126 - val_acc: 0.8173
+Epoch 31/116
+ - 365s - loss: 1.4020 - binary_crossentropy: 0.5548 - acc: 0.8177 - val_loss: 0.6627 - val_binary_crossentropy: 0.5109 - val_acc: 0.8154
+Epoch 32/116
+ - 367s - loss: 1.4134 - binary_crossentropy: 0.5556 - acc: 0.8177 - val_loss: 0.6740 - val_binary_crossentropy: 0.5232 - val_acc: 0.8169
+Epoch 33/116
+ - 368s - loss: 1.4012 - binary_crossentropy: 0.5537 - acc: 0.8177 - val_loss: 0.6645 - val_binary_crossentropy: 0.5197 - val_acc: 0.8158
+Epoch 34/116
+ - 367s - loss: 1.3928 - binary_crossentropy: 0.5512 - acc: 0.8177 - val_loss: 0.6619 - val_binary_crossentropy: 0.5166 - val_acc: 0.8158
+Epoch 35/116
+ - 367s - loss: 1.3937 - binary_crossentropy: 0.5503 - acc: 0.8177 - val_loss: 0.6582 - val_binary_crossentropy: 0.5110 - val_acc: 0.8177
+Epoch 36/116
+ - 368s - loss: 1.3909 - binary_crossentropy: 0.5490 - acc: 0.8178 - val_loss: 0.6560 - val_binary_crossentropy: 0.5109 - val_acc: 0.8169
+2019-03-04 16:42:27.062615: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-04 16:42:27.062737: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-04 16:42:27.062751: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-04 16:42:27.062759: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-04 16:42:27.062932: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+start 3 model train
+=======   CONFIG:  ('esim', 'char', 24, 'fastcbow', 256, [], 18, 8)
+=======   CONFIG:  ('esim', 'char', 24, 'fastcbow', 256, [], 18, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/18
+ - 251s - loss: 1.2744 - binary_crossentropy: 0.6149 - acc: 0.7890 - val_loss: 0.5186 - val_binary_crossentropy: 0.5186 - val_acc: 0.8162
+Epoch 2/18
+ - 246s - loss: 0.8131 - binary_crossentropy: 0.5161 - acc: 0.8192 - val_loss: 0.4510 - val_binary_crossentropy: 0.4510 - val_acc: 0.8169
+Epoch 3/18
+ - 247s - loss: 0.7452 - binary_crossentropy: 0.4705 - acc: 0.8204 - val_loss: 0.4665 - val_binary_crossentropy: 0.4665 - val_acc: 0.8173
+Epoch 4/18
+ - 245s - loss: 0.7016 - binary_crossentropy: 0.4404 - acc: 0.8229 - val_loss: 0.4461 - val_binary_crossentropy: 0.4461 - val_acc: 0.8193
+Epoch 5/18
+ - 245s - loss: 0.6677 - binary_crossentropy: 0.4167 - acc: 0.8283 - val_loss: 0.4398 - val_binary_crossentropy: 0.4398 - val_acc: 0.8208
+Epoch 6/18
+ - 245s - loss: 0.6304 - binary_crossentropy: 0.3897 - acc: 0.8337 - val_loss: 0.4477 - val_binary_crossentropy: 0.4477 - val_acc: 0.8275
+Epoch 7/18
+ - 248s - loss: 0.5881 - binary_crossentropy: 0.3608 - acc: 0.8455 - val_loss: 0.4647 - val_binary_crossentropy: 0.4647 - val_acc: 0.8337
+Epoch 8/18
+ - 245s - loss: 0.5369 - binary_crossentropy: 0.3261 - acc: 0.8647 - val_loss: 0.4671 - val_binary_crossentropy: 0.4671 - val_acc: 0.8427
+Epoch 9/18
+ - 249s - loss: 0.4806 - binary_crossentropy: 0.2891 - acc: 0.8831 - val_loss: 0.4785 - val_binary_crossentropy: 0.4785 - val_acc: 0.8470
+Epoch 10/18
+ - 248s - loss: 0.4212 - binary_crossentropy: 0.2514 - acc: 0.9010 - val_loss: 0.5014 - val_binary_crossentropy: 0.5014 - val_acc: 0.8419
+Epoch 11/18
+ - 246s - loss: 0.3665 - binary_crossentropy: 0.2178 - acc: 0.9168 - val_loss: 0.5447 - val_binary_crossentropy: 0.5447 - val_acc: 0.8407
+Epoch 12/18
+ - 245s - loss: 0.3257 - binary_crossentropy: 0.1920 - acc: 0.9272 - val_loss: 0.5874 - val_binary_crossentropy: 0.5874 - val_acc: 0.8400
+Epoch 13/18
+ - 245s - loss: 0.2877 - binary_crossentropy: 0.1692 - acc: 0.9369 - val_loss: 0.6130 - val_binary_crossentropy: 0.6130 - val_acc: 0.8384
+2019-03-04 17:36:09.221525: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-04 17:36:09.221607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-04 17:36:09.221619: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-04 17:36:09.221626: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-04 17:36:09.221741: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+start 4 model train
+=======   CONFIG:  ('esim', 'word', 20, 'fastcbow', 256, [], 21, 8)
+=======   CONFIG:  ('esim', 'word', 20, 'fastcbow', 256, [], 21, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/21
+ - 421s - loss: 1.3014 - binary_crossentropy: 0.6447 - acc: 0.7894 - val_loss: 0.5830 - val_binary_crossentropy: 0.5830 - val_acc: 0.8162
+Epoch 2/21
+ - 420s - loss: 0.8824 - binary_crossentropy: 0.5701 - acc: 0.8172 - val_loss: 0.5160 - val_binary_crossentropy: 0.5160 - val_acc: 0.8162
+Epoch 3/21
+ - 419s - loss: 0.8135 - binary_crossentropy: 0.5213 - acc: 0.8181 - val_loss: 0.5257 - val_binary_crossentropy: 0.5257 - val_acc: 0.8162
+Epoch 4/21
+ - 418s - loss: 0.7663 - binary_crossentropy: 0.4892 - acc: 0.8198 - val_loss: 0.4824 - val_binary_crossentropy: 0.4824 - val_acc: 0.8177
+Epoch 5/21
+ - 421s - loss: 0.7216 - binary_crossentropy: 0.4569 - acc: 0.8221 - val_loss: 0.4706 - val_binary_crossentropy: 0.4706 - val_acc: 0.8177
+Epoch 6/21
+ - 418s - loss: 0.6774 - binary_crossentropy: 0.4249 - acc: 0.8287 - val_loss: 0.5083 - val_binary_crossentropy: 0.5083 - val_acc: 0.8189
+Epoch 7/21
+ - 420s - loss: 0.6265 - binary_crossentropy: 0.3899 - acc: 0.8411 - val_loss: 0.4953 - val_binary_crossentropy: 0.4953 - val_acc: 0.8259
+Epoch 8/21
+ - 418s - loss: 0.5682 - binary_crossentropy: 0.3498 - acc: 0.8591 - val_loss: 0.5064 - val_binary_crossentropy: 0.5064 - val_acc: 0.8376
+Epoch 9/21
+ - 418s - loss: 0.5115 - binary_crossentropy: 0.3126 - acc: 0.8795 - val_loss: 0.5439 - val_binary_crossentropy: 0.5439 - val_acc: 0.8345
+Epoch 10/21
+ - 418s - loss: 0.4481 - binary_crossentropy: 0.2719 - acc: 0.8968 - val_loss: 0.5689 - val_binary_crossentropy: 0.5689 - val_acc: 0.8349
+Epoch 11/21
+ - 418s - loss: 0.3881 - binary_crossentropy: 0.2348 - acc: 0.9126 - val_loss: 0.5876 - val_binary_crossentropy: 0.5876 - val_acc: 0.8322
+Epoch 12/21
+ - 421s - loss: 0.3433 - binary_crossentropy: 0.2061 - acc: 0.9254 - val_loss: 0.6213 - val_binary_crossentropy: 0.6213 - val_acc: 0.8349
+Epoch 13/21
+ - 421s - loss: 0.2988 - binary_crossentropy: 0.1791 - acc: 0.9352 - val_loss: 0.6690 - val_binary_crossentropy: 0.6690 - val_acc: 0.8306
+2019-03-04 19:07:57.385825: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-04 19:07:57.385968: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-04 19:07:57.385989: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-04 19:07:57.385998: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-04 19:07:57.386193: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+start 5 model train
+=======   CONFIG:  ('decom', 'char', 24, 'fastcbow', 256, [], 85, 8)
+=======   CONFIG:  ('decom', 'char', 24, 'fastcbow', 256, [], 85, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/85
+ - 50s - loss: 0.9496 - binary_crossentropy: 0.5815 - acc: 0.8126 - val_loss: 0.4418 - val_binary_crossentropy: 0.4418 - val_acc: 0.8205
+Epoch 2/85
+ - 48s - loss: 0.8239 - binary_crossentropy: 0.5313 - acc: 0.8187 - val_loss: 0.4333 - val_binary_crossentropy: 0.4333 - val_acc: 0.8275
+Epoch 3/85
+ - 48s - loss: 0.7990 - binary_crossentropy: 0.5129 - acc: 0.8184 - val_loss: 0.4609 - val_binary_crossentropy: 0.4609 - val_acc: 0.8173
+Epoch 4/85
+ - 48s - loss: 0.7895 - binary_crossentropy: 0.5075 - acc: 0.8185 - val_loss: 0.4532 - val_binary_crossentropy: 0.4532 - val_acc: 0.8205
+Epoch 5/85
+ - 48s - loss: 0.7832 - binary_crossentropy: 0.5030 - acc: 0.8186 - val_loss: 0.4785 - val_binary_crossentropy: 0.4785 - val_acc: 0.8165
+Epoch 6/85
+ - 48s - loss: 0.7757 - binary_crossentropy: 0.4983 - acc: 0.8192 - val_loss: 0.4449 - val_binary_crossentropy: 0.4449 - val_acc: 0.8193
+Epoch 7/85
+ - 48s - loss: 0.7690 - binary_crossentropy: 0.4937 - acc: 0.8194 - val_loss: 0.4557 - val_binary_crossentropy: 0.4557 - val_acc: 0.8216
+Epoch 8/85
+ - 48s - loss: 0.7652 - binary_crossentropy: 0.4915 - acc: 0.8199 - val_loss: 0.4564 - val_binary_crossentropy: 0.4564 - val_acc: 0.8232
+Epoch 9/85
+ - 48s - loss: 0.7586 - binary_crossentropy: 0.4869 - acc: 0.8199 - val_loss: 0.4875 - val_binary_crossentropy: 0.4875 - val_acc: 0.8193
+Epoch 10/85
+ - 48s - loss: 0.7540 - binary_crossentropy: 0.4842 - acc: 0.8198 - val_loss: 0.4971 - val_binary_crossentropy: 0.4971 - val_acc: 0.8201
+2019-03-04 19:16:09.313773: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-04 19:16:09.313871: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-04 19:16:09.313887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-04 19:16:09.313895: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-04 19:16:09.314056: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+start 6 model train
+=======   CONFIG:  ('decom', 'word', 20, 'fastcbow', 256, [], 100, 8)
+=======   CONFIG:  ('decom', 'word', 20, 'fastcbow', 256, [], 100, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/100
+ - 249s - loss: 1.0059 - binary_crossentropy: 0.6141 - acc: 0.8105 - val_loss: 0.5828 - val_binary_crossentropy: 0.5828 - val_acc: 0.8165
+Epoch 2/100
+ - 248s - loss: 0.8772 - binary_crossentropy: 0.5725 - acc: 0.8178 - val_loss: 0.5407 - val_binary_crossentropy: 0.5407 - val_acc: 0.8162
+Epoch 3/100
+ - 248s - loss: 0.8534 - binary_crossentropy: 0.5557 - acc: 0.8177 - val_loss: 0.5693 - val_binary_crossentropy: 0.5693 - val_acc: 0.8162
+Epoch 4/100
+ - 248s - loss: 0.8420 - binary_crossentropy: 0.5477 - acc: 0.8178 - val_loss: 0.5513 - val_binary_crossentropy: 0.5513 - val_acc: 0.8162
+Epoch 5/100
+ - 248s - loss: 0.8271 - binary_crossentropy: 0.5381 - acc: 0.8178 - val_loss: 0.5341 - val_binary_crossentropy: 0.5341 - val_acc: 0.8162
+Epoch 6/100
+ - 246s - loss: 0.8124 - binary_crossentropy: 0.5275 - acc: 0.8179 - val_loss: 0.5584 - val_binary_crossentropy: 0.5584 - val_acc: 0.8162
+Epoch 7/100
+ - 247s - loss: 0.8094 - binary_crossentropy: 0.5256 - acc: 0.8181 - val_loss: 0.5391 - val_binary_crossentropy: 0.5391 - val_acc: 0.8162
+Epoch 8/100
+ - 248s - loss: 0.8058 - binary_crossentropy: 0.5232 - acc: 0.8181 - val_loss: 0.5362 - val_binary_crossentropy: 0.5362 - val_acc: 0.8162
+Epoch 9/100
+ - 248s - loss: 0.7971 - binary_crossentropy: 0.5168 - acc: 0.8182 - val_loss: 0.5724 - val_binary_crossentropy: 0.5724 - val_acc: 0.8162
+Epoch 10/100
+ - 248s - loss: 0.7922 - binary_crossentropy: 0.5131 - acc: 0.8183 - val_loss: 0.5478 - val_binary_crossentropy: 0.5478 - val_acc: 0.8165
+Epoch 11/100
+ - 248s - loss: 0.7826 - binary_crossentropy: 0.5057 - acc: 0.8184 - val_loss: 0.6005 - val_binary_crossentropy: 0.6005 - val_acc: 0.8165
+Epoch 12/100
+ - 248s - loss: 0.7785 - binary_crossentropy: 0.5028 - acc: 0.8185 - val_loss: 0.5968 - val_binary_crossentropy: 0.5968 - val_acc: 0.8158
+Epoch 13/100
+ - 248s - loss: 0.7715 - binary_crossentropy: 0.4976 - acc: 0.8186 - val_loss: 0.5568 - val_binary_crossentropy: 0.5568 - val_acc: 0.8162
+2019-03-04 20:10:34.455908: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-04 20:10:34.456176: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-04 20:10:34.456204: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-04 20:10:34.456224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-04 20:10:34.456406: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+start 7 model train
+=======   CONFIG:  ('dssm', 'both', [20, 24], 'fastcbow', 256, [], 116, 8)
+=======   CONFIG:  ('dssm', 'both', [20, 24], 'fastcbow', 256, [], 116, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/116
+ - 330s - loss: 0.8167 - binary_crossentropy: 0.5270 - acc: 0.8173 - val_loss: 0.4815 - val_binary_crossentropy: 0.4815 - val_acc: 0.8177
+Epoch 2/116
+ - 327s - loss: 0.7408 - binary_crossentropy: 0.4761 - acc: 0.8214 - val_loss: 0.4659 - val_binary_crossentropy: 0.4659 - val_acc: 0.8244
+Epoch 3/116
+ - 327s - loss: 0.6881 - binary_crossentropy: 0.4367 - acc: 0.8283 - val_loss: 0.4916 - val_binary_crossentropy: 0.4916 - val_acc: 0.8232
+Epoch 4/116
+ - 327s - loss: 0.6291 - binary_crossentropy: 0.3947 - acc: 0.8417 - val_loss: 0.5129 - val_binary_crossentropy: 0.5129 - val_acc: 0.8267
+Epoch 5/116
+ - 326s - loss: 0.5610 - binary_crossentropy: 0.3487 - acc: 0.8610 - val_loss: 0.5119 - val_binary_crossentropy: 0.5119 - val_acc: 0.8329
+Epoch 6/116
+ - 326s - loss: 0.4886 - binary_crossentropy: 0.3010 - acc: 0.8825 - val_loss: 0.5345 - val_binary_crossentropy: 0.5345 - val_acc: 0.8372
+Epoch 7/116
+ - 326s - loss: 0.4199 - binary_crossentropy: 0.2570 - acc: 0.9032 - val_loss: 0.5641 - val_binary_crossentropy: 0.5641 - val_acc: 0.8341
+Epoch 8/116
+ - 327s - loss: 0.3547 - binary_crossentropy: 0.2171 - acc: 0.9197 - val_loss: 0.6044 - val_binary_crossentropy: 0.6044 - val_acc: 0.8302
+Epoch 9/116
+ - 326s - loss: 0.3078 - binary_crossentropy: 0.1865 - acc: 0.9313 - val_loss: 0.6275 - val_binary_crossentropy: 0.6275 - val_acc: 0.8314
+Epoch 10/116
+ - 326s - loss: 0.2669 - binary_crossentropy: 0.1611 - acc: 0.9416 - val_loss: 0.6821 - val_binary_crossentropy: 0.6821 - val_acc: 0.8271
+/usr/local/lib/python3.5/dist-packages/tensorflow/python/ops/gradients_impl.py:109: UserWarning: Converting sparse IndexedSlices to a dense Tensor with 123584000 elements. This may consume a large amount of memory.
+  num_elements)

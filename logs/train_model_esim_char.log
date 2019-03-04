@@ -1,0 +1,66 @@
+nohup: ignoring input
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+INFO:starting loading embedding
+INFO:loading Word2Vec object from ../model/char2vec_gensim256
+DEBUG:{'kw': {}, 'mode': 'rb', 'uri': '../model/char2vec_gensim256'}
+INFO:loading wv recursively from ../model/char2vec_gensim256.wv.* with mmap=None
+INFO:setting ignored attribute vectors_norm to None
+INFO:loading vocabulary recursively from ../model/char2vec_gensim256.vocabulary.* with mmap=None
+INFO:loading trainables recursively from ../model/char2vec_gensim256.trainables.* with mmap=None
+INFO:setting ignored attribute cum_table to None
+INFO:loaded ../model/char2vec_gensim256
+INFO:loading Word2Vec object from ../model/word2vec_gensim256
+DEBUG:{'kw': {}, 'mode': 'rb', 'uri': '../model/word2vec_gensim256'}
+INFO:loading wv recursively from ../model/word2vec_gensim256.wv.* with mmap=None
+INFO:loading vectors from ../model/word2vec_gensim256.wv.vectors.npy with mmap=None
+INFO:setting ignored attribute vectors_norm to None
+INFO:loading vocabulary recursively from ../model/word2vec_gensim256.vocabulary.* with mmap=None
+INFO:loading trainables recursively from ../model/word2vec_gensim256.trainables.* with mmap=None
+INFO:loading syn1neg from ../model/word2vec_gensim256.trainables.syn1neg.npy with mmap=None
+INFO:setting ignored attribute cum_table to None
+INFO:loaded ../model/word2vec_gensim256
+INFO:end loading embedding
+2019-03-03 12:25:47.134086: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2019-03-03 12:25:47.300417: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:964] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2019-03-03 12:25:47.300961: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties: 
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:00:04.0
+totalMemory: 11.17GiB freeMemory: 11.09GiB
+2019-03-03 12:25:47.300986: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-03-03 12:25:47.623539: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-03 12:25:47.623596: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-03-03 12:25:47.623610: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-03-03 12:25:47.623899: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10742 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+=======   CONFIG:  ('esim', 'char', 24, 'gensim', 256, [], 18, 8)
+=======   CONFIG:  ('esim', 'char', 24, 'gensim', 256, [], 18, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/18
+ - 261s - loss: 1.2677 - binary_crossentropy: 0.6088 - acc: 0.7897 - val_loss: 0.5192 - val_binary_crossentropy: 0.5192 - val_acc: 0.8162
+Epoch 2/18
+ - 254s - loss: 0.7991 - binary_crossentropy: 0.5049 - acc: 0.8197 - val_loss: 0.4673 - val_binary_crossentropy: 0.4673 - val_acc: 0.8162
+Epoch 3/18
+ - 256s - loss: 0.7238 - binary_crossentropy: 0.4551 - acc: 0.8215 - val_loss: 0.4188 - val_binary_crossentropy: 0.4188 - val_acc: 0.8197
+Epoch 4/18
+ - 255s - loss: 0.6857 - binary_crossentropy: 0.4288 - acc: 0.8249 - val_loss: 0.4251 - val_binary_crossentropy: 0.4251 - val_acc: 0.8267
+Epoch 5/18
+ - 256s - loss: 0.6517 - binary_crossentropy: 0.4053 - acc: 0.8300 - val_loss: 0.4145 - val_binary_crossentropy: 0.4145 - val_acc: 0.8310
+Epoch 6/18
+ - 254s - loss: 0.6210 - binary_crossentropy: 0.3832 - acc: 0.8362 - val_loss: 0.4370 - val_binary_crossentropy: 0.4370 - val_acc: 0.8333
+Epoch 7/18
+ - 255s - loss: 0.5756 - binary_crossentropy: 0.3519 - acc: 0.8498 - val_loss: 0.4378 - val_binary_crossentropy: 0.4378 - val_acc: 0.8376
+Epoch 8/18
+ - 256s - loss: 0.5285 - binary_crossentropy: 0.3202 - acc: 0.8656 - val_loss: 0.4451 - val_binary_crossentropy: 0.4451 - val_acc: 0.8357
+Epoch 9/18
+ - 254s - loss: 0.4746 - binary_crossentropy: 0.2844 - acc: 0.8840 - val_loss: 0.4700 - val_binary_crossentropy: 0.4700 - val_acc: 0.8411
+Epoch 10/18
+ - 254s - loss: 0.4237 - binary_crossentropy: 0.2525 - acc: 0.8992 - val_loss: 0.4782 - val_binary_crossentropy: 0.4782 - val_acc: 0.8407
+Epoch 11/18
+ - 255s - loss: 0.3732 - binary_crossentropy: 0.2212 - acc: 0.9144 - val_loss: 0.5114 - val_binary_crossentropy: 0.5114 - val_acc: 0.8443
+Epoch 12/18
+ - 255s - loss: 0.3242 - binary_crossentropy: 0.1905 - acc: 0.9266 - val_loss: 0.5318 - val_binary_crossentropy: 0.5318 - val_acc: 0.8482
+Epoch 13/18
+ - 255s - loss: 0.2921 - binary_crossentropy: 0.1711 - acc: 0.9359 - val_loss: 0.5796 - val_binary_crossentropy: 0.5796 - val_acc: 0.8447
+timer stopping

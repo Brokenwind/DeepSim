@@ -6,7 +6,7 @@ import os
 import re
 import json
 import gensim
-import jieba
+import jieba_fast as jieba
 import keras
 import keras.backend as K
 import numpy as np

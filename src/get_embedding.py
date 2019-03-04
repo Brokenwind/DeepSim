@@ -32,10 +32,10 @@ if EMBEDDING_MODEL_TYPE == "gensim":
     word2index = {v: k for k, v in enumerate(word_embedding_model.wv.index2word)}
 
 elif EMBEDDING_MODEL_TYPE == "fastskip" or EMBEDDING_MODEL_TYPE == "fastcbow":
-    char_fastcbow = FastText.load(os.path.join(MODEL_DIR, "char2vec_%s%d" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)))
+    char_fastcbow = FastText.load_fasttext_format(os.path.join(MODEL_DIR, "char2vec_%s%d.bin" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)),full_model=False)
     char_embedding_matrix = char_fastcbow.wv.vectors
     char2index = {v: k for k, v in enumerate(char_fastcbow.wv.index2word)}
-    word_fastcbow = FastText.load(os.path.join(MODEL_DIR, "word2vec_%s%d" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)))
+    word_fastcbow = FastText.load_fasttext_format(os.path.join(MODEL_DIR, "word2vec_%s%d.bin" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)),full_model=False)
     word_embedding_matrix = word_fastcbow.wv.vectors
     word2index = {v: k for k, v in enumerate(word_fastcbow.wv.index2word)}
 logging.info('end loading embedding')

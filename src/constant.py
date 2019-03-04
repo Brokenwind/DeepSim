@@ -30,7 +30,7 @@ WORD_LEVEL_CORPUS = '../data/train_word.txt'
 # 字符向量或者词嵌入向量维度
 VECTOR_LENGTH = 256
 # 选取的词嵌入算法
-EMBEDDING_MODEL_TYPE = 'gensim'
+EMBEDDING_MODEL_TYPE = 'fastcbow'
 
 ###################################################
 # 训练相关参数

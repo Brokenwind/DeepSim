@@ -243,5 +243,94 @@ def train_all_models():
         train_model(model, swa_model, cfg)
 
 
+
+#####################################################################
+#                         评估指标和最佳阈值
+#####################################################################
+
+def r_f1_thresh(y_pred,y_true,step=1000):
+    e = np.zeros((len(y_true),2))
+    e[:,0] = y_pred.reshape(-1)
+    e[:,1] = y_true
+    f = pd.DataFrame(e)
+    thrs = np.linspace(0,1,step+1)
+    x = np.array([f1_score(y_pred=f.loc[:,0]>thr, y_true=f.loc[:,1]) for thr in thrs])
+    f1_, thresh = max(x),thrs[x.argmax()]
+    return f.corr()[0][1], f1_, thresh
+
+
+#####################################################################
+#                         模型评估、模型融合、模型测试
+#####################################################################
+
+evaluate_path = MODEL_DIR + "y_pred.pkl"
+
+
+def evaluate_models():
+    train_y_preds, test_y_preds = [], []
+    all_cfgs = json.loads(open(CONFIG_PATH, 'r', encoding="utf8").read())
+    num_clfs = len(all_cfgs)
+
+    for weight, cfg in all_cfgs.items():
+        K.clear_session()
+        model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
+        data = load_data(dtype, input_length, w2v_length)
+        train_x, train_y, test_x, test_y = split_data(data)
+        model = get_model(cfg, weight)
+        train_y_preds.append(model.predict(train_x, batch_size=test_batch_size).reshape(-1))
+        test_y_preds.append(model.predict(test_x, batch_size=test_batch_size).reshape(-1))
+
+    train_y_preds, test_y_preds = np.array(train_y_preds), np.array(test_y_preds)
+    pd.to_pickle([train_y_preds, train_y, test_y_preds, test_y], evaluate_path)
+
+
+blending_path = MODEL_DIR + "blending_gdbm.pkl"
+
+
+def train_blending():
+    """ 根据配置文件和验证集的值计算融合模型 """
+    train_y_preds, train_y, valid_y_preds, valid_y = pd.read_pickle(evaluate_path)
+    train_y_preds = train_y_preds.T
+    valid_y_preds = valid_y_preds.T
+
+    '''融合使用的模型'''
+    clf = LogisticRegression()
+    clf.fit(valid_y_preds, valid_y)
+
+    train_y_preds_blend = clf.predict_proba(train_y_preds)[:, 1]
+    r, f1, train_thresh = r_f1_thresh(train_y_preds_blend, train_y)
+
+    valid_y_preds_blend = clf.predict_proba(valid_y_preds)[:, 1]
+    r, f1, valid_thresh = r_f1_thresh(valid_y_preds_blend, valid_y)
+    pd.to_pickle(((train_thresh + valid_thresh) / 2, clf), blending_path)
+
+
+def result():
+    global df1
+    all_cfgs = json.loads(open(CONFIG_PATH, 'r', encoding="utf8").read())
+    num_clfs = len(all_cfgs)
+    test_y_preds = []
+    X = {}
+    for cfg in all_cfgs.values():
+        model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
+        key_ = f"{dtype}_{input_length}"
+        if key_ not in X: X[key_] = input_data(df1["sent1"], df1["sent2"], dtype=dtype, input_length=input_length)
+
+    for weight, cfg in all_cfgs.items():
+        K.clear_session()
+        model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
+        key_ = f"{dtype}_{input_length}"
+        model = get_model(cfg, weight)
+        test_y_preds.append(model.predict(X[key_], batch_size=test_batch_size).reshape(-1))
+
+    test_y_preds = np.array(test_y_preds).T
+    thresh, clf = pd.read_pickle(blending_path)
+    result = clf.predict_proba(test_y_preds)[:, 1].reshape(-1) > thresh
+
+    df_output = pd.concat([df1["id"], pd.Series(result, name="label", dtype=np.int32)], axis=1)
+
+    #topai(1, df_output)
+
+
 if __name__ == '__main__':
     train_all_models()

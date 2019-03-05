@@ -1,0 +1,111 @@
+./
+├── data
+│   ├── all_configs.json
+│   ├── atec_nlp_sim.csv
+│   ├── dict.txt
+│   ├── train_char.txt
+│   └── train_word.txt
+├── logs
+│   ├── dir_tree.log
+│   ├── extract.log
+│   ├── memory.txt
+│   ├── models.log
+│   ├── train_embedding.log
+│   ├── train_model_all_fastcbow.log
+│   ├── train_model_all_gensim_add_data.log
+│   ├── train_model_all_gensim_fastskip.log
+│   ├── train_model_all_gensim.log
+│   ├── train_model_esim_char.log
+│   ├── train_model.log
+│   └── train_model_semese_word.log
+├── model
+│   ├── all_configs.json
+│   ├── char_24_256
+│   ├── char2vec_fastcbow256.bin
+│   ├── char2vec_fastcbow256.vec
+│   ├── char2vec_fastskip256.bin
+│   ├── char2vec_fastskip256.vec
+│   ├── char2vec_gensim256
+│   ├── decom_char_03-03_21-33-04.h5
+│   ├── decom_char_03-03_21-33-04-swa.h5
+│   ├── decom_char_03-04 19-08-00.h5
+│   ├── decom_char_03-04 19-08-00-swa.h5
+│   ├── decom_char_03-05 13-06-46.h5
+│   ├── decom_char_03-05 13-06-46-swa.h5
+│   ├── decom_word_03-03_21-40-28.h5
+│   ├── decom_word_03-03_21-40-28-swa.h5
+│   ├── decom_word_03-04 19-16-12.h5
+│   ├── decom_word_03-04 19-16-12-swa.h5
+│   ├── decom_word_03-05 13-14-56.h5
+│   ├── decom_word_03-05 13-14-56-swa.h5
+│   ├── dssm_both_03-03_22-18-13.h5
+│   ├── dssm_both_03-03_22-18-13-swa.h5
+│   ├── dssm_both_03-04 20-10-40.h5
+│   ├── dssm_both_03-04 20-10-40-swa.h5
+│   ├── dssm_both_03-05 14-01-04.h5
+│   ├── dssm_both_03-05 14-01-04-swa.h5
+│   ├── esim_char_03-03_12-26-00.h5
+│   ├── esim_char_03-03_12-26-00-swa.h5
+│   ├── esim_char_03-03 19-14-04.h5
+│   ├── esim_char_03-03 19-14-04-swa.h5
+│   ├── esim_char_03-04 16-42-32.h5
+│   ├── esim_char_03-04 16-42-32-swa.h5
+│   ├── esim_char_03-05 10-59-25.h5
+│   ├── esim_char_03-05 10-59-25-swa.h5
+│   ├── esim_word_03-03_20-14-22.h5
+│   ├── esim_word_03-03_20-14-22-swa.h5
+│   ├── esim_word_03-04 17-36-15.h5
+│   ├── esim_word_03-04 17-36-15-swa.h5
+│   ├── esim_word_03-05 11-48-36.h5
+│   ├── esim_word_03-05 11-48-36-swa.h5
+│   ├── gensim.txt
+│   ├── siamese_char_03-03_14-13-36.h5
+│   ├── siamese_char_03-03_14-13-36-swa.h5
+│   ├── siamese_char_03-04_11-36-05.h5
+│   ├── siamese_char_03-04_11-36-05-swa.h5
+│   ├── siamese_char_03-05_05-51-29.h5
+│   ├── siamese_char_03-05_05-51-29-swa.h5
+│   ├── siamese_word_03-03_15-43-19.h5
+│   ├── siamese_word_03-03_15-43-19-swa.h5
+│   ├── siamese_word_03-04_13-00-06.h5
+│   ├── siamese_word_03-04 13-00-06-swa.h5
+│   ├── siamese_word_03-05 07-15-12.h5
+│   ├── siamese_word_03-05 07-15-12-swa.h5
+│   ├── word_20_256
+│   ├── word2vec_fastcbow256.bin
+│   ├── word2vec_fastcbow256.vec
+│   ├── word2vec_fastskip256.bin
+│   ├── word2vec_fastskip256.vec
+│   ├── word2vec_gensim256
+│   ├── word2vec_gensim256.trainables.syn1neg.npy
+│   └── word2vec_gensim256.wv.vectors.npy
+├── README.md
+├── resources
+│   ├── std
+│   │   ├── wiki_00
+│   │   ├── wiki_01
+│   │   └── wiki_02
+│   ├── zhwiki
+│   │   └── AA
+│   │       ├── wiki_00
+│   │       ├── wiki_01
+│   │       └── wiki_02
+│   └── zhwiki-latest-pages-articles.xml.bz2
+└── src
+    ├── constant.py
+    ├── extract_wiki.py
+    ├── get_embedding.py
+    ├── __init__.py
+    ├── models.py
+    ├── prepare_data.py
+    ├── __pycache__
+    │   ├── constant.cpython-35.pyc
+    │   ├── extract_wiki.cpython-35.pyc
+    │   ├── get_embedding.cpython-35.pyc
+    │   ├── models.cpython-35.pyc
+    │   └── swa.cpython-35.pyc
+    ├── swa.py
+    ├── train_embedding.py
+    └── train_model.py
+
+9 directories, 99 files

@@ -1,0 +1,63 @@
+total 25G
+drwxrwxr-x 2 amei amei 4.0K Mar  5 15:03 ./
+drwxrwxr-x 8 amei amei 4.0K Mar  2 01:30 ../
+-rw-rw-r-- 1 amei amei 7.4K Mar  5 15:03 all_configs.json
+-rw-rw-r-- 1 amei amei  20M Mar  3 09:02 char_24_256
+-rw-rw-r-- 1 amei amei 2.0G Mar  2 05:07 char2vec_fastcbow256.bin
+-rw-rw-r-- 1 amei amei  24M Mar  2 05:07 char2vec_fastcbow256.vec
+-rw-rw-r-- 1 amei amei 2.0G Mar  2 04:43 char2vec_fastskip256.bin
+-rw-rw-r-- 1 amei amei  25M Mar  2 04:43 char2vec_fastskip256.vec
+-rw-rw-r-- 1 amei amei  35M Mar  2 02:50 char2vec_gensim256
+-rw-rw-r-- 1 amei amei  22M Mar  3 21:33 decom_char_03-03_21-33-04.h5
+-rw-rw-r-- 1 amei amei  22M Mar  3 21:40 decom_char_03-03_21-33-04-swa.h5
+-rw-rw-r-- 1 amei amei  22M Mar  4 19:09 decom_char_03-04 19-08-00.h5
+-rw-rw-r-- 1 amei amei  22M Mar  4 19:16 decom_char_03-04 19-08-00-swa.h5
+-rw-rw-r-- 1 amei amei  22M Mar  5 13:08 decom_char_03-05 13-06-46.h5
+-rw-rw-r-- 1 amei amei  22M Mar  5 13:14 decom_char_03-05 13-06-46-swa.h5
+-rw-rw-r-- 1 amei amei 482M Mar  3 21:44 decom_word_03-03_21-40-28.h5
+-rw-rw-r-- 1 amei amei 482M Mar  3 22:18 decom_word_03-03_21-40-28-swa.h5
+-rw-rw-r-- 1 amei amei 482M Mar  4 19:37 decom_word_03-04 19-16-12.h5
+-rw-rw-r-- 1 amei amei 482M Mar  4 20:10 decom_word_03-04 19-16-12-swa.h5
+-rw-rw-r-- 1 amei amei 482M Mar  5 13:27 decom_word_03-05 13-14-56.h5
+-rw-rw-r-- 1 amei amei 482M Mar  5 14:00 decom_word_03-05 13-14-56-swa.h5
+-rw-rw-r-- 1 amei amei 487M Mar  3 22:29 dssm_both_03-03_22-18-13.h5
+-rw-rw-r-- 1 amei amei 487M Mar  3 23:14 dssm_both_03-03_22-18-13-swa.h5
+-rw-rw-r-- 1 amei amei 487M Mar  4 20:21 dssm_both_03-04 20-10-40.h5
+-rw-rw-r-- 1 amei amei 487M Mar  4 21:05 dssm_both_03-04 20-10-40-swa.h5
+-rw-rw-r-- 1 amei amei 487M Mar  5 14:18 dssm_both_03-05 14-01-04.h5
+-rw-rw-r-- 1 amei amei 487M Mar  5 15:03 dssm_both_03-05 14-01-04-swa.h5
+-rw-rw-r-- 1 amei amei  45M Mar  3 12:47 esim_char_03-03_12-26-00.h5
+-rw-rw-r-- 1 amei amei  45M Mar  3 13:21 esim_char_03-03_12-26-00-swa.h5
+-rw-rw-r-- 1 amei amei  45M Mar  3 19:40 esim_char_03-03 19-14-04.h5
+-rw-rw-r-- 1 amei amei  45M Mar  3 20:14 esim_char_03-03 19-14-04-swa.h5
+-rw-rw-r-- 1 amei amei  45M Mar  4 17:03 esim_char_03-04 16-42-32.h5
+-rw-rw-r-- 1 amei amei  45M Mar  4 17:36 esim_char_03-04 16-42-32-swa.h5
+-rw-rw-r-- 1 amei amei  45M Mar  5 11:16 esim_char_03-05 10-59-25.h5
+-rw-rw-r-- 1 amei amei  45M Mar  5 11:48 esim_char_03-05 10-59-25-swa.h5
+-rw-rw-r-- 1 amei amei 505M Mar  3 20:36 esim_word_03-03 20-14-22.h5
+-rw-rw-r-- 1 amei amei 505M Mar  3 21:33 esim_word_03-03 20-14-22-swa.h5
+-rw-rw-r-- 1 amei amei 505M Mar  4 18:11 esim_word_03-04 17-36-15.h5
+-rw-rw-r-- 1 amei amei 505M Mar  4 19:07 esim_word_03-04 17-36-15-swa.h5
+-rw-rw-r-- 1 amei amei 505M Mar  5 12:10 esim_word_03-05 11-48-36.h5
+-rw-rw-r-- 1 amei amei 505M Mar  5 13:06 esim_word_03-05 11-48-36-swa.h5
+-rw-rw-r-- 1 amei amei 2.6K Mar  3 23:22 gensim.txt
+-rw-rw-r-- 1 amei amei  14M Mar  3 15:10 siamese_char_03-03_14-13-36.h5
+-rw-rw-r-- 1 amei amei  14M Mar  3 15:43 siamese_char_03-03_14-13-36-swa.h5
+-rw-rw-r-- 1 amei amei  14M Mar  4 12:28 siamese_char_03-04_11-36-05.h5
+-rw-rw-r-- 1 amei amei  14M Mar  4 12:59 siamese_char_03-04_11-36-05-swa.h5
+-rw-rw-r-- 1 amei amei  14M Mar  5 06:43 siamese_char_03-05_05-51-29.h5
+-rw-rw-r-- 1 amei amei  14M Mar  5 07:15 siamese_char_03-05_05-51-29-swa.h5
+-rw-rw-r-- 1 amei amei 475M Mar  3 18:24 siamese_word_03-03_15-43-19.h5
+-rw-rw-r-- 1 amei amei 475M Mar  3 19:13 siamese_word_03-03_15-43-19-swa.h5
+-rw-rw-r-- 1 amei amei 475M Mar  4 15:53 siamese_word_03-04_13-00-06.h5
+-rw-rw-r-- 1 amei amei 475M Mar  4 16:42 siamese_word_03-04 13-00-06-swa.h5
+-rw-rw-r-- 1 amei amei 475M Mar  5 10:11 siamese_word_03-05 07-15-12.h5
+-rw-rw-r-- 1 amei amei 475M Mar  5 10:59 siamese_word_03-05 07-15-12-swa.h5
+-rw-rw-r-- 1 amei amei  17M Mar  3 10:20 word_20_256
+-rw-rw-r-- 1 amei amei 2.9G Mar  2 07:48 word2vec_fastcbow256.bin
+-rw-rw-r-- 1 amei amei 1.0G Mar  2 07:49 word2vec_fastcbow256.vec
+-rw-rw-r-- 1 amei amei 2.9G Mar  2 07:07 word2vec_fastskip256.bin
+-rw-rw-r-- 1 amei amei 1.1G Mar  2 07:08 word2vec_fastskip256.vec
+-rw-rw-r-- 1 amei amei  31M Mar  2 03:23 word2vec_gensim256
+-rw-rw-r-- 1 amei amei 472M Mar  2 03:23 word2vec_gensim256.trainables.syn1neg.npy
+-rw-rw-r-- 1 amei amei 472M Mar  2 03:23 word2vec_gensim256.wv.vectors.npy

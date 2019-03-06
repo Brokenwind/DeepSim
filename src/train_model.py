@@ -243,19 +243,18 @@ def train_all_models():
         train_model(model, swa_model, cfg)
 
 
-
 #####################################################################
 #                         评估指标和最佳阈值
 #####################################################################
 
-def r_f1_thresh(y_pred,y_true,step=1000):
-    e = np.zeros((len(y_true),2))
-    e[:,0] = y_pred.reshape(-1)
-    e[:,1] = y_true
+def r_f1_thresh(y_pred, y_true, step=1000):
+    e = np.zeros((len(y_true), 2))
+    e[:, 0] = y_pred.reshape(-1)
+    e[:, 1] = y_true
     f = pd.DataFrame(e)
-    thrs = np.linspace(0,1,step+1)
-    x = np.array([f1_score(y_pred=f.loc[:,0]>thr, y_true=f.loc[:,1]) for thr in thrs])
-    f1_, thresh = max(x),thrs[x.argmax()]
+    thrs = np.linspace(0, 1, step + 1)
+    x = np.array([f1_score(y_pred=f.loc[:, 0] > thr, y_true=f.loc[:, 1]) for thr in thrs])
+    f1_, thresh = max(x), thrs[x.argmax()]
     return f.corr()[0][1], f1_, thresh
 
 
@@ -263,7 +262,7 @@ def r_f1_thresh(y_pred,y_true,step=1000):
 #                         模型评估、模型融合、模型测试
 #####################################################################
 
-evaluate_path = MODEL_DIR + "y_pred.pkl"
+evaluate_path = os.path.join(MODEL_DIR, "y_pred.pkl")
 
 
 def evaluate_models():
@@ -284,8 +283,7 @@ def evaluate_models():
     pd.to_pickle([train_y_preds, train_y, test_y_preds, test_y], evaluate_path)
 
 
-blending_path = MODEL_DIR + "blending_gdbm.pkl"
-
+blending_path = os.path.join(MODEL_DIR, "blending_gdbm.pkl")
 
 def train_blending():
     """ 根据配置文件和验证集的值计算融合模型 """
@@ -329,7 +327,7 @@ def result():
 
     df_output = pd.concat([df1["id"], pd.Series(result, name="label", dtype=np.int32)], axis=1)
 
-    #topai(1, df_output)
+    # topai(1, df_output)
 
 
 if __name__ == '__main__':

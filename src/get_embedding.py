@@ -203,7 +203,10 @@ def split_data(data, mode="train", test_size=test_size, random_state=random_stat
 
 
 if __name__ == '__main__':
+    '''
+    下边语句测试使用
+    '''
     # embedding = get_embedding_layers('fastskip', 20, VECTOR_LENGTH)
     # print(type(embedding))
-    (data_left_sentence, data_right_sentence, labels) = load_data('word', 20)
-    print(data_left_sentence[0].shape)
+    # (data_left_sentence, data_right_sentence, labels) = load_data('word', 20)
+    # print(data_left_sentence[0].shape)

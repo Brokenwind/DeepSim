@@ -1,0 +1,28 @@
+=======   CONFIG:  ('esim', 'char', 24, 'fastskip', 256, [], 18, 8)
+=======   CONFIG:  ('esim', 'char', 24, 'fastskip', 256, [], 18, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/18
+ - 250s - loss: 1.2591 - binary_crossentropy: 0.6110 - acc: 0.7898 - val_loss: 0.5308 - val_binary_crossentropy: 0.5308 - val_acc: 0.8162
+Epoch 2/18
+ - 245s - loss: 0.8097 - binary_crossentropy: 0.5126 - acc: 0.8188 - val_loss: 0.4488 - val_binary_crossentropy: 0.4488 - val_acc: 0.8169
+Epoch 3/18
+ - 247s - loss: 0.7364 - binary_crossentropy: 0.4635 - acc: 0.8205 - val_loss: 0.4353 - val_binary_crossentropy: 0.4353 - val_acc: 0.8165
+Epoch 4/18
+ - 246s - loss: 0.6877 - binary_crossentropy: 0.4302 - acc: 0.8246 - val_loss: 0.4183 - val_binary_crossentropy: 0.4183 - val_acc: 0.8236
+Epoch 5/18
+ - 243s - loss: 0.6504 - binary_crossentropy: 0.4033 - acc: 0.8293 - val_loss: 0.4442 - val_binary_crossentropy: 0.4442 - val_acc: 0.8251
+Epoch 6/18
+ - 243s - loss: 0.6100 - binary_crossentropy: 0.3754 - acc: 0.8391 - val_loss: 0.4238 - val_binary_crossentropy: 0.4238 - val_acc: 0.8341
+Epoch 7/18
+ - 243s - loss: 0.5606 - binary_crossentropy: 0.3410 - acc: 0.8539 - val_loss: 0.4369 - val_binary_crossentropy: 0.4369 - val_acc: 0.8380
+Epoch 8/18
+ - 244s - loss: 0.5102 - binary_crossentropy: 0.3085 - acc: 0.8725 - val_loss: 0.4546 - val_binary_crossentropy: 0.4546 - val_acc: 0.8411
+Epoch 9/18
+ - 243s - loss: 0.4541 - binary_crossentropy: 0.2716 - acc: 0.8898 - val_loss: 0.4695 - val_binary_crossentropy: 0.4695 - val_acc: 0.8454
+Epoch 10/18
+ - 243s - loss: 0.3945 - binary_crossentropy: 0.2341 - acc: 0.9091 - val_loss: 0.5048 - val_binary_crossentropy: 0.5048 - val_acc: 0.8443
+Epoch 11/18
+ - 243s - loss: 0.3477 - binary_crossentropy: 0.2065 - acc: 0.9207 - val_loss: 0.5375 - val_binary_crossentropy: 0.5375 - val_acc: 0.8388
+Epoch 12/18
+ - 243s - loss: 0.3086 - binary_crossentropy: 0.1827 - acc: 0.9313 - val_loss: 0.5549 - val_binary_crossentropy: 0.5549 - val_acc: 0.8415

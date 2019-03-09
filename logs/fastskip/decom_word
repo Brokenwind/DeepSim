@@ -1,0 +1,26 @@
+=======   CONFIG:  ('decom', 'word', 20, 'fastskip', 256, [], 100, 8)
+=======   CONFIG:  ('decom', 'word', 20, 'fastskip', 256, [], 100, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/100
+ - 248s - loss: 0.9591 - binary_crossentropy: 0.5997 - acc: 0.8138 - val_loss: 0.4960 - val_binary_crossentropy: 0.4960 - val_acc: 0.8173
+Epoch 2/100
+ - 247s - loss: 0.8379 - binary_crossentropy: 0.5427 - acc: 0.8181 - val_loss: 0.5152 - val_binary_crossentropy: 0.5152 - val_acc: 0.8162
+Epoch 3/100
+ - 247s - loss: 0.7956 - binary_crossentropy: 0.5112 - acc: 0.8184 - val_loss: 0.4946 - val_binary_crossentropy: 0.4946 - val_acc: 0.8189
+Epoch 4/100
+ - 247s - loss: 0.7656 - binary_crossentropy: 0.4897 - acc: 0.8193 - val_loss: 0.5042 - val_binary_crossentropy: 0.5042 - val_acc: 0.8205
+Epoch 5/100
+ - 248s - loss: 0.7442 - binary_crossentropy: 0.4743 - acc: 0.8213 - val_loss: 0.5387 - val_binary_crossentropy: 0.5387 - val_acc: 0.8173
+Epoch 6/100
+ - 248s - loss: 0.7217 - binary_crossentropy: 0.4585 - acc: 0.8238 - val_loss: 0.5517 - val_binary_crossentropy: 0.5517 - val_acc: 0.8224
+Epoch 7/100
+ - 248s - loss: 0.7054 - binary_crossentropy: 0.4466 - acc: 0.8252 - val_loss: 0.5440 - val_binary_crossentropy: 0.5440 - val_acc: 0.8205
+Epoch 8/100
+ - 248s - loss: 0.6884 - binary_crossentropy: 0.4348 - acc: 0.8293 - val_loss: 0.5372 - val_binary_crossentropy: 0.5372 - val_acc: 0.8189
+Epoch 9/100
+ - 248s - loss: 0.6733 - binary_crossentropy: 0.4242 - acc: 0.8316 - val_loss: 0.5479 - val_binary_crossentropy: 0.5479 - val_acc: 0.8212
+Epoch 10/100
+ - 248s - loss: 0.6596 - binary_crossentropy: 0.4151 - acc: 0.8354 - val_loss: 0.5648 - val_binary_crossentropy: 0.5648 - val_acc: 0.8201
+Epoch 11/100
+ - 248s - loss: 0.6425 - binary_crossentropy: 0.4032 - acc: 0.8399 - val_loss: 0.5773 - val_binary_crossentropy: 0.5773 - val_acc: 0.8189

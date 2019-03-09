@@ -1,0 +1,30 @@
+=======   CONFIG:  ('esim', 'char', 24, 'fastcbow', 256, [], 18, 8)
+=======   CONFIG:  ('esim', 'char', 24, 'fastcbow', 256, [], 18, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/18
+ - 251s - loss: 1.2744 - binary_crossentropy: 0.6149 - acc: 0.7890 - val_loss: 0.5186 - val_binary_crossentropy: 0.5186 - val_acc: 0.8162
+Epoch 2/18
+ - 246s - loss: 0.8131 - binary_crossentropy: 0.5161 - acc: 0.8192 - val_loss: 0.4510 - val_binary_crossentropy: 0.4510 - val_acc: 0.8169
+Epoch 3/18
+ - 247s - loss: 0.7452 - binary_crossentropy: 0.4705 - acc: 0.8204 - val_loss: 0.4665 - val_binary_crossentropy: 0.4665 - val_acc: 0.8173
+Epoch 4/18
+ - 245s - loss: 0.7016 - binary_crossentropy: 0.4404 - acc: 0.8229 - val_loss: 0.4461 - val_binary_crossentropy: 0.4461 - val_acc: 0.8193
+Epoch 5/18
+ - 245s - loss: 0.6677 - binary_crossentropy: 0.4167 - acc: 0.8283 - val_loss: 0.4398 - val_binary_crossentropy: 0.4398 - val_acc: 0.8208
+Epoch 6/18
+ - 245s - loss: 0.6304 - binary_crossentropy: 0.3897 - acc: 0.8337 - val_loss: 0.4477 - val_binary_crossentropy: 0.4477 - val_acc: 0.8275
+Epoch 7/18
+ - 248s - loss: 0.5881 - binary_crossentropy: 0.3608 - acc: 0.8455 - val_loss: 0.4647 - val_binary_crossentropy: 0.4647 - val_acc: 0.8337
+Epoch 8/18
+ - 245s - loss: 0.5369 - binary_crossentropy: 0.3261 - acc: 0.8647 - val_loss: 0.4671 - val_binary_crossentropy: 0.4671 - val_acc: 0.8427
+Epoch 9/18
+ - 249s - loss: 0.4806 - binary_crossentropy: 0.2891 - acc: 0.8831 - val_loss: 0.4785 - val_binary_crossentropy: 0.4785 - val_acc: 0.8470
+Epoch 10/18
+ - 248s - loss: 0.4212 - binary_crossentropy: 0.2514 - acc: 0.9010 - val_loss: 0.5014 - val_binary_crossentropy: 0.5014 - val_acc: 0.8419
+Epoch 11/18
+ - 246s - loss: 0.3665 - binary_crossentropy: 0.2178 - acc: 0.9168 - val_loss: 0.5447 - val_binary_crossentropy: 0.5447 - val_acc: 0.8407
+Epoch 12/18
+ - 245s - loss: 0.3257 - binary_crossentropy: 0.1920 - acc: 0.9272 - val_loss: 0.5874 - val_binary_crossentropy: 0.5874 - val_acc: 0.8400
+Epoch 13/18
+ - 245s - loss: 0.2877 - binary_crossentropy: 0.1692 - acc: 0.9369 - val_loss: 0.6130 - val_binary_crossentropy: 0.6130 - val_acc: 0.8384

@@ -1,0 +1,46 @@
+=======   CONFIG:  ('siamese', 'char', 24, 'fastcbow', 256, [100, 80, 64, 64], 97, 8)
+=======   CONFIG:  ('siamese', 'char', 24, 'fastcbow', 256, [100, 80, 64, 64], 97, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/97
+ - 250s - loss: 19.7086 - binary_crossentropy: 0.6488 - acc: 0.8154 - val_loss: 0.8852 - val_binary_crossentropy: 0.5587 - val_acc: 0.8158
+Epoch 2/97
+ - 238s - loss: 1.7552 - binary_crossentropy: 0.6217 - acc: 0.8167 - val_loss: 0.7964 - val_binary_crossentropy: 0.5600 - val_acc: 0.8158
+Epoch 3/97
+ - 239s - loss: 1.6040 - binary_crossentropy: 0.6070 - acc: 0.8172 - val_loss: 0.7476 - val_binary_crossentropy: 0.5526 - val_acc: 0.8173
+Epoch 4/97
+ - 238s - loss: 1.5527 - binary_crossentropy: 0.5988 - acc: 0.8177 - val_loss: 0.7278 - val_binary_crossentropy: 0.5396 - val_acc: 0.8181
+Epoch 5/97
+ - 238s - loss: 1.5427 - binary_crossentropy: 0.5928 - acc: 0.8176 - val_loss: 0.7366 - val_binary_crossentropy: 0.5496 - val_acc: 0.8169
+Epoch 6/97
+ - 239s - loss: 1.5288 - binary_crossentropy: 0.5893 - acc: 0.8175 - val_loss: 0.7265 - val_binary_crossentropy: 0.5448 - val_acc: 0.8181
+Epoch 7/97
+ - 239s - loss: 1.5032 - binary_crossentropy: 0.5838 - acc: 0.8176 - val_loss: 0.7003 - val_binary_crossentropy: 0.5259 - val_acc: 0.8173
+Epoch 8/97
+ - 239s - loss: 1.4979 - binary_crossentropy: 0.5804 - acc: 0.8177 - val_loss: 0.7182 - val_binary_crossentropy: 0.5374 - val_acc: 0.8185
+Epoch 9/97
+ - 239s - loss: 1.4776 - binary_crossentropy: 0.5789 - acc: 0.8178 - val_loss: 0.7083 - val_binary_crossentropy: 0.5399 - val_acc: 0.8173
+Epoch 10/97
+ - 239s - loss: 1.4688 - binary_crossentropy: 0.5755 - acc: 0.8177 - val_loss: 0.7241 - val_binary_crossentropy: 0.5603 - val_acc: 0.8169
+Epoch 11/97
+ - 239s - loss: 1.4459 - binary_crossentropy: 0.5721 - acc: 0.8177 - val_loss: 0.7062 - val_binary_crossentropy: 0.5478 - val_acc: 0.8181
+Epoch 12/97
+ - 239s - loss: 1.4376 - binary_crossentropy: 0.5699 - acc: 0.8177 - val_loss: 0.6896 - val_binary_crossentropy: 0.5354 - val_acc: 0.8173
+Epoch 13/97
+ - 239s - loss: 1.4338 - binary_crossentropy: 0.5692 - acc: 0.8177 - val_loss: 0.6671 - val_binary_crossentropy: 0.5124 - val_acc: 0.8173
+Epoch 14/97
+ - 239s - loss: 1.4356 - binary_crossentropy: 0.5675 - acc: 0.8177 - val_loss: 0.6786 - val_binary_crossentropy: 0.5260 - val_acc: 0.8177
+Epoch 15/97
+ - 239s - loss: 1.4296 - binary_crossentropy: 0.5651 - acc: 0.8177 - val_loss: 0.6971 - val_binary_crossentropy: 0.5445 - val_acc: 0.8177
+Epoch 16/97
+ - 239s - loss: 1.4228 - binary_crossentropy: 0.5638 - acc: 0.8178 - val_loss: 0.6890 - val_binary_crossentropy: 0.5387 - val_acc: 0.8177
+Epoch 17/97
+ - 239s - loss: 1.4115 - binary_crossentropy: 0.5610 - acc: 0.8177 - val_loss: 0.6888 - val_binary_crossentropy: 0.5403 - val_acc: 0.8177
+Epoch 18/97
+ - 239s - loss: 1.4058 - binary_crossentropy: 0.5616 - acc: 0.8177 - val_loss: 0.6987 - val_binary_crossentropy: 0.5506 - val_acc: 0.8181
+Epoch 19/97
+ - 239s - loss: 1.4032 - binary_crossentropy: 0.5592 - acc: 0.8177 - val_loss: 0.6942 - val_binary_crossentropy: 0.5475 - val_acc: 0.8177
+Epoch 20/97
+ - 239s - loss: 1.3994 - binary_crossentropy: 0.5564 - acc: 0.8177 - val_loss: 0.6784 - val_binary_crossentropy: 0.5324 - val_acc: 0.8181
+Epoch 21/97
+ - 239s - loss: 1.4078 - binary_crossentropy: 0.5583 - acc: 0.8177 - val_loss: 0.6808 - val_binary_crossentropy: 0.5302 - val_acc: 0.8177

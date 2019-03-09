@@ -1,0 +1,26 @@
+=======   CONFIG:  ('dssm', 'both', [20, 24], 'fastskip', 256, [], 116, 8)
+=======   CONFIG:  ('dssm', 'both', [20, 24], 'fastskip', 256, [], 116, 8)
+total iters per cycle(epoch): 1562
+Train on 99915 samples, validate on 2562 samples
+Epoch 1/116
+ - 337s - loss: 0.8138 - binary_crossentropy: 0.5132 - acc: 0.8182 - val_loss: 0.4803 - val_binary_crossentropy: 0.4803 - val_acc: 0.8197
+Epoch 2/116
+ - 335s - loss: 0.7051 - binary_crossentropy: 0.4492 - acc: 0.8254 - val_loss: 0.4550 - val_binary_crossentropy: 0.4550 - val_acc: 0.8286
+Epoch 3/116
+ - 334s - loss: 0.6473 - binary_crossentropy: 0.4069 - acc: 0.8357 - val_loss: 0.4400 - val_binary_crossentropy: 0.4400 - val_acc: 0.8361
+Epoch 4/116
+ - 335s - loss: 0.5820 - binary_crossentropy: 0.3606 - acc: 0.8521 - val_loss: 0.4517 - val_binary_crossentropy: 0.4517 - val_acc: 0.8372
+Epoch 5/116
+ - 334s - loss: 0.5009 - binary_crossentropy: 0.3064 - acc: 0.8748 - val_loss: 0.4920 - val_binary_crossentropy: 0.4920 - val_acc: 0.8365
+Epoch 6/116
+ - 334s - loss: 0.4141 - binary_crossentropy: 0.2509 - acc: 0.9020 - val_loss: 0.5291 - val_binary_crossentropy: 0.5291 - val_acc: 0.8361
+Epoch 7/116
+ - 334s - loss: 0.3345 - binary_crossentropy: 0.2012 - acc: 0.9236 - val_loss: 0.5763 - val_binary_crossentropy: 0.5763 - val_acc: 0.8361
+Epoch 8/116
+ - 334s - loss: 0.2689 - binary_crossentropy: 0.1614 - acc: 0.9416 - val_loss: 0.6358 - val_binary_crossentropy: 0.6358 - val_acc: 0.8326
+Epoch 9/116
+ - 334s - loss: 0.2195 - binary_crossentropy: 0.1305 - acc: 0.9530 - val_loss: 0.7051 - val_binary_crossentropy: 0.7051 - val_acc: 0.8322
+Epoch 10/116
+ - 334s - loss: 0.1773 - binary_crossentropy: 0.1044 - acc: 0.9634 - val_loss: 0.7601 - val_binary_crossentropy: 0.7601 - val_acc: 0.8306
+Epoch 11/116
+ - 334s - loss: 0.1487 - binary_crossentropy: 0.0868 - acc: 0.9691 - val_loss: 0.8189 - val_binary_crossentropy: 0.8189 - val_acc: 0.8244

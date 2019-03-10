@@ -1,36 +1,13 @@
 import time
 
 start_time = time.time()
-import multiprocessing
-import os
-import re
 import json
-import gensim
-import jieba_fast as jieba
-import keras
-import keras.backend as K
-import numpy as np
-import pandas as pd
-from itertools import combinations
-from keras.activations import softmax
-from keras.callbacks import EarlyStopping, ModelCheckpoint, LambdaCallback, Callback, ReduceLROnPlateau, \
-    LearningRateScheduler
-from keras.layers import *
-from keras.models import Model
-from keras.optimizers import SGD, Adadelta, Adam, Nadam, RMSprop
-from keras.regularizers import L1L2, l2
-from keras.preprocessing.sequence import pad_sequences
-from keras.engine.topology import Layer
-from keras import initializers, regularizers, constraints
+from keras.callbacks import EarlyStopping, ModelCheckpoint, Callback, ReduceLROnPlateau
+from keras.optimizers import Adam
 
-from sklearn.linear_model import LogisticRegression, LogisticRegressionCV
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
-from sklearn.model_selection import train_test_split, KFold
-from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier
 
-from gensim.models.word2vec import LineSentence
-from gensim.models.fasttext import FastText
-import copy
 from get_embedding import *
 from models import *
 from swa import SWA

@@ -1,0 +1,85 @@
+{
+  "../model/siamese_char_03-03_14-13-36.h5": [
+    "siamese",
+    "char",
+    24,
+    "gensim",
+    256,
+    [
+      100,
+      80,
+      64,
+      64
+    ],
+    97,
+    8
+  ],
+  "../model/siamese_word_03-03_15-43-19.h5": [
+    "siamese",
+    "word",
+    20,
+    "gensim",
+    256,
+    [
+      100,
+      80,
+      64,
+      64
+    ],
+    116,
+    8
+  ],
+  "../model/esim_char_03-03_12-26-00.h5": [
+    "esim",
+    "char",
+    24,
+    "gensim",
+    256,
+    [],
+    18,
+    8
+  ],
+  "../model/esim_word_03-03_20-14-22.h5": [
+    "esim",
+    "word",
+    20,
+    "gensim",
+    256,
+    [],
+    21,
+    8
+  ],
+  "../model/decom_word_03-03_21-40-28.h5": [
+    "decom",
+    "word",
+    20,
+    "gensim",
+    256,
+    [],
+    100,
+    8
+  ],
+  "../model/decom_char_03-03_21-33-04.h5": [
+    "decom",
+    "char",
+    24,
+    "gensim",
+    256,
+    [],
+    85,
+    8
+  ],
+  "../model/dssm_both_03-03_22-18-13.h5": [
+    "dssm",
+    "both",
+    [
+      20,
+      24
+    ],
+    "gensim",
+    256,
+    [],
+    116,
+    8
+  ]
+}

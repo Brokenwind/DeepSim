@@ -1,6 +1,7 @@
 from get_embedding import *
-from models import *
+from models_new import *
 from keras.utils import plot_model
+
 
 def get_model(cfg, model_weights=None):
     print("=======   CONFIG: ", cfg)
@@ -29,22 +30,20 @@ def get_model(cfg, model_weights=None):
     if model_weights is not None:
         model.load_weights(model_weights)
 
-    # keras.utils.plot_model(model, to_file=MODEL_DIR+model_type+"_"+dtype+'.png', show_shapes=True, show_layer_names=True, rankdir='TB')
     return model
 
 
-
 def print_all_models():
-  count = 0
-  for cfg in cfgs:
-    count += 1
-    print("start %d model train" % count)
-    K.clear_session()
-    model = get_model(cfg, None)
-    model.summary()
-    plot_model(model,to_file='mode.png')
-    if count == 1:
-      break
+    for cfg in cfgs:
+        model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
+        K.clear_session()
+        model = get_model(cfg, None)
+        plot_model(model, to_file=MODEL_DIR + model_type + "_" + dtype + '.png', show_shapes=False,
+                   show_layer_names=False,
+                   rankdir='TB')
+        # model.summary()
+        # plot_model(model,to_file='mode.png')
+
 
 if __name__ == '__main__':
-  print_all_models()
+    print_all_models()

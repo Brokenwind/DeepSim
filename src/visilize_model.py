@@ -24,9 +24,6 @@ def get_model(cfg, model_weights=None):
     elif model_type == "siamese":
         model = siamese(pretrained_embedding=embedding, input_length=input_length, w2v_length=w2v_length,
                         n_hidden=n_hidden)
-    elif model_type == "dssm":
-        model = DSSM(pretrained_embedding=embedding, input_length=input_length, lstmsize=90)
-
     if model_weights is not None:
         model.load_weights(model_weights)
 
@@ -38,7 +35,7 @@ def print_all_models():
         model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
         K.clear_session()
         model = get_model(cfg, None)
-        plot_model(model, to_file=MODEL_DIR + model_type + "_" + dtype + '.png', show_shapes=False,
+        plot_model(model, to_file=MODEL_DIR + model_type + "_" + dtype + '.png', show_shapes=True,
                    show_layer_names=False,
                    rankdir='TB')
         # model.summary()

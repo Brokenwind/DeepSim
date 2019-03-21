@@ -211,11 +211,12 @@ def decomposable_attention(pretrained_embedding,
     q2_encoded = time_distributed(q2_embed, projection_layers)
 
     # Attention
-    q1_aligned, q2_aligned = soft_attention_alignment(q1_encoded, q2_encoded)
+    # q1_aligned, q2_aligned = soft_attention_alignment(q1_encoded, q2_encoded)
 
     # Compare
-    q1_combined = Concatenate()([q1_encoded, q2_aligned, submult(q1_encoded, q2_aligned)])
-    q2_combined = Concatenate()([q2_encoded, q1_aligned, submult(q2_encoded, q1_aligned)])
+    #q1_combined = Concatenate()([q1_encoded, q2_aligned, submult(q1_encoded, q2_aligned)])
+    #q2_combined = Concatenate()([q2_encoded, q1_aligned, submult(q2_encoded, q1_aligned)])
+    q1_combined,q2_combined = SoftAttentionAlignment()([q1_encoded,q2_encoded])
     compare_layers = [
         Dense(compare_dim, activation=activation),
         Dropout(compare_dropout),

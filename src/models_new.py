@@ -210,6 +210,10 @@ class SharedLSTM(Layer):
         return (None, self.filters * 2)
 
 
+###################################################
+#  siamese 网络中用到计算曼哈顿距离的层
+###################################################
+
 class ManhattanDistance(Layer):
     '''
     计算曼哈顿距离
@@ -220,9 +224,8 @@ class ManhattanDistance(Layer):
 
     def build(self, input_shape):
         # 检查参数是否合格,参数是list,并且list的长度不能小于2
-        if not isinstance(input_shape, list) or len(input_shape) < 2:
-            raise ValueError('A `Concatenate` layer should be called '
-                             'on a list of at least 2 inputs')
+        if not isinstance(input_shape, list) or len(input_shape) != 2:
+            raise ValueError('参数必须是一个长度为2的list')
         # input_shape不能有为None的项
         if all([shape is None for shape in input_shape]):
             return
@@ -238,6 +241,55 @@ class ManhattanDistance(Layer):
 
     def compute_output_shape(self, input_shape):
         output_shape = (None, 1)
+        return output_shape
+
+
+class DenseBatchnormDropout(Layer):
+    '''
+    Dense-BatchNorm-Dropout
+    '''
+
+    def __init__(self, dense_dim, dense_dropout, activation, **kwargs):
+        self.dense_dim = dense_dim
+        self.dense_dropout = dense_dropout
+        self.activation = activation
+        super(DenseBatchnormDropout, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        super(DenseBatchnormDropout, self).build(input_shape)
+
+    def call(self, inputs):
+        dense = Dense(self.dense_dim, activation=self.activation)(inputs)
+        dense = BatchNormalization()(dense)
+        dense = Dropout(self.dense_dropout)(dense)
+
+        return dense
+
+    def compute_output_shape(self, input_shape):
+        output_shape = (None, self.dense_dim)
+        return output_shape
+
+
+class AveMaxPooling(Layer):
+    '''
+    计算平均池化和最大池化,并将结果拼接起来
+    '''
+
+    def __init__(self, **kwargs):
+        super(AveMaxPooling, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        super(AveMaxPooling, self).build(input_shape)
+
+    def call(self, inputs):
+        ave_pooling = GlobalAvgPool1D()(inputs)
+        max_pooling = GlobalMaxPool1D()(inputs)
+        concat = Concatenate()([ave_pooling, max_pooling])
+
+        return concat
+
+    def compute_output_shape(self, input_shape):
+        output_shape = (None, input_shape[2] * 2)
         return output_shape
 
 
@@ -317,19 +369,15 @@ def esim(pretrained_embedding,
     q2_compare = compose(q2_combined)
 
     # Aggregate
-    q1_rep = apply_multiple(q1_compare, [GlobalAvgPool1D(), GlobalMaxPool1D()])
-    q2_rep = apply_multiple(q2_compare, [GlobalAvgPool1D(), GlobalMaxPool1D()])
+    q1_rep = AveMaxPooling()(q1_compare)
+    q2_rep = AveMaxPooling()(q2_compare)
 
     # Classifier
     merged = Concatenate()([q1_rep, q2_rep])
 
     dense = BatchNormalization()(merged)
-    dense = Dense(dense_dim, activation='elu')(dense)
-    dense = BatchNormalization()(dense)
-    dense = Dropout(dense_dropout)(dense)
-    dense = Dense(dense_dim, activation='elu')(dense)
-    dense = BatchNormalization()(dense)
-    dense = Dropout(dense_dropout)(dense)
+    dense = DenseBatchnormDropout(dense_dim, dense_dropout, 'relu')(dense)
+    dense = DenseBatchnormDropout(dense_dim, dense_dropout, 'relu')(dense)
     out_ = Dense(1, activation='sigmoid')(dense)
 
     model = Model(inputs=[q1, q2], outputs=out_)

@@ -14,7 +14,7 @@ PROCESSED_WIKI_FILE_PATH = '../resources/std/'
 
 
 def extract_wiki(file_path):
-    os.system('WikiExtractor.py -b 500M -o zhwiki  ' + file_path)
+    os.system('cd ../resources && WikiExtractor.py -b 500M -o zhwiki  ' + file_path)
 
 
 def remove_signs(input_file, output_file):
@@ -55,7 +55,8 @@ def remove_signs(input_file, output_file):
 
             # 繁体转简体
             line = opencc.convert(line)
-            outfile.write(line)
+            if line:
+                outfile.write(line)
     outfile.close()
 
 

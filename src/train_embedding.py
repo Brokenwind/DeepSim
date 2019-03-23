@@ -9,7 +9,8 @@ import gensim
 import jieba_fast as jieba
 from gensim.models.word2vec import LineSentence
 
-import  extract_wiki
+import extract_wiki
+import utils
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = '3'
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
@@ -40,12 +41,15 @@ class CorpusChars(object):
             logging.info('generating char corpus, processing file %s', ANT_NLP_FILE_PATH)
             for line in atec:
                 lineno, s1, s2, label = line.strip().split("\t")
+                s1 = utils.remove_punctuation(s1)
+                s2 = utils.remove_punctuation(s2)
                 yield list(s1) + list(s2)
 
         for file in extract_wiki.list_all_files(PROCESSED_WIKI_FILE_PATH):
             logging.info('generating char corpus, processing file %s', file)
             with open(file, 'r', encoding="utf8") as wiki:
                 for line in wiki:
+                    line = utils.remove_punctuation(line)
                     if len(line) > 0:
                         yield [char for char in line if char and 0x4E00 <= ord(char[0]) <= 0x9FA5]
 
@@ -64,11 +68,14 @@ class CorpusWords(object):
             logging.info('generating word corpus, processing file %s', ANT_NLP_FILE_PATH)
             for line in atec:
                 line_code, s1, s2, label = line.strip().split("\t")
+                s1 = utils.remove_punctuation(s1)
+                s2 = utils.remove_punctuation(s2)
                 yield list(jieba.cut(s1)) + list(jieba.cut(s2))
         for file in extract_wiki.list_all_files(PROCESSED_WIKI_FILE_PATH):
             logging.info('generating word corpus, processing file %s', file)
             with open(file, 'r', encoding="utf8") as wiki:
                 for line in wiki:
+                    line = utils.remove_punctuation(line)
                     if len(line) > 0:
                         # 汉字的unicode编码范围是[0x4E00,0x9FA5]
                         yield [word for word in list(jieba.cut(line)) if word and 0x4E00 <= ord(word[0]) <= 0x9FA5]
@@ -156,6 +163,6 @@ if __name__ == '__main__':
     train_embedding_gensim: 用gensim包分别训练一个字符嵌入和词嵌入
     train_embedding_fasttext: 用fasttext的各个算法训练字符嵌入和词嵌入
     '''
-    # generate_data()
-    # train_embedding_gensim()
+    generate_data()
+    train_embedding_gensim()
     # train_embedding_fasttext()

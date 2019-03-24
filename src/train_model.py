@@ -10,7 +10,6 @@ from sklearn.metrics import f1_score
 
 from get_embedding import *
 from models import *
-from swa import SWA
 
 
 class LR_Updater(Callback):
@@ -119,6 +118,12 @@ class TimerStop(Callback):
 
 
 def get_model(cfg, model_weights=None):
+    '''
+    根据constant.py模块中的cfgs配置,获取对应的模型
+    :param cfg: constant.py模块中的cfgs配置项
+    :param model_weights: 训练好的模型参数位置(训练阶段传None,评估和融合阶段出入模型的参数文件位置)
+    :return:
+    '''
     print("=======   CONFIG: ", cfg)
 
     model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
@@ -142,9 +147,10 @@ def get_model(cfg, model_weights=None):
     elif model_type == "dssm":
         model = DSSM(pretrained_embedding=embedding, input_length=input_length, lstmsize=90)
 
+    # 如果有参数位置,则加载相应的参数
     if model_weights is not None:
         model.load_weights(model_weights)
-
+    # 保存模型的图
     # keras.utils.plot_model(model, to_file=MODEL_DIR+model_type+"_"+dtype+'.png', show_shapes=True, show_layer_names=True, rankdir='TB')
     return model
 
@@ -162,7 +168,7 @@ def save_config(filepath, cfg):
     open(CONFIG_PATH, "w", encoding="utf8").write(json.dumps(configs, indent=2, ensure_ascii=False))
 
 
-def train_model(model, swa_model, cfg):
+def train_model(model, cfg):
     model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
 
     data = load_data(dtype, input_length, w2v_length)
@@ -173,7 +179,6 @@ def train_model(model, swa_model, cfg):
                                  mode='auto')
     earlystop = EarlyStopping(monitor='val_loss', min_delta=0, patience=patience, verbose=0, mode='auto')
     reduce_lr = ReduceLROnPlateau(monitor='val_loss', verbose=0, factor=0.5, patience=2, min_lr=1e-6)
-    swa_cbk = SWA(model, swa_model, swa_start=1)
 
     init_lrs = 0.001
     clr_div, cut_div = 10, 8
@@ -182,7 +187,7 @@ def train_model(model, swa_model, cfg):
     total_iterators = batch_num * cycle_len
     print("total iters per cycle(epoch):", total_iterators)
     circular_lr = CircularLR(init_lrs, total_iterators, on_cycle_end=None, div=clr_div, cut_div=cut_div)
-    callbacks = [checkpoint, earlystop, swa_cbk, circular_lr]
+    callbacks = [checkpoint, earlystop, circular_lr]
 
     # 当训练达到一定的时间后就停止训练
     # callbacks.append(TimerStop(start_time=start_time, total_seconds=7100))
@@ -201,12 +206,8 @@ def train_model(model, swa_model, cfg):
     model.compile(optimizer=Adam(lr=init_lrs, beta_1=0.8), loss=loss, metrics=metrics)
     fit()
 
-    filepath_swa = os.path.join(MODEL_DIR, filepath.split("/")[-1].split(".")[0] + "-swa.h5")
-    swa_cbk.swa_model.save_weights(filepath_swa)
-
     # 保存配置，方便多模型集成
     save_config(filepath, cfg)
-    save_config(filepath_swa, cfg)
 
 
 def train_all_models():
@@ -216,8 +217,7 @@ def train_all_models():
         print("start %d model train" % count)
         K.clear_session()
         model = get_model(cfg, None)
-        swa_model = get_model(cfg, None)
-        train_model(model, swa_model, cfg)
+        train_model(model, cfg)
 
 
 #####################################################################
@@ -255,12 +255,13 @@ def evaluate_models():
         model = get_model(cfg, weight)
         train_y_preds.append(model.predict(train_x, batch_size=test_batch_size).reshape(-1))
         test_y_preds.append(model.predict(test_x, batch_size=test_batch_size).reshape(-1))
-
+    # train_y_preds的shape=(训练模型个数,训练样本个数)
     train_y_preds, test_y_preds = np.array(train_y_preds), np.array(test_y_preds)
     pd.to_pickle([train_y_preds, train_y, test_y_preds, test_y], evaluate_path)
 
 
 blending_path = os.path.join(MODEL_DIR, "blending_gdbm.pkl")
+
 
 def train_blending():
     """ 根据配置文件和验证集的值计算融合模型 """
@@ -309,3 +310,5 @@ def result():
 
 if __name__ == '__main__':
     train_all_models()
+    #evaluate_models()
+    #train_blending()

@@ -1,18 +1,18 @@
 #!/bin/bash
 
-sudo yum install opencc
+sudo yum -y install opencc
 
-pip3 install numpy
-pip3 install pandas
-pip3 install matplotlib
-pip3 install ipython
-pip3 install seaborn
-pip3 install tensorflow-gpu
-pip3 install keras
-pip3 install gensim
-pip3 install opencc
-pip3 install Cython
-pip3 install fasttext
-pip3 install sklearn
-pip3 install scipy
-pip3 install jieba_fast
+sudo pip3 install numpy
+sudo pip3 install pandas
+sudo pip3 install matplotlib
+sudo pip3 install ipython
+sudo pip3 install seaborn
+sudo pip3 install tensorflow-gpu
+sudo pip3 install keras
+sudo pip3 install gensim
+sudo pip3 install opencc
+sudo pip3 install Cython
+sudo pip3 install fasttext
+sudo pip3 install sklearn
+sudo pip3 install scipy
+sudo pip3 install jieba_fast

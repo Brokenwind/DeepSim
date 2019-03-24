@@ -17,6 +17,7 @@ from sklearn.model_selection import train_test_split, KFold
 # 下边引入自定义模块
 from keras.layers import *
 from constant import *
+from utils import *
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
@@ -32,10 +33,12 @@ if EMBEDDING_MODEL_TYPE == "gensim":
     word2index = {v: k for k, v in enumerate(word_embedding_model.wv.index2word)}
 
 elif EMBEDDING_MODEL_TYPE == "fastskip" or EMBEDDING_MODEL_TYPE == "fastcbow":
-    char_fastcbow = FastText.load_fasttext_format(os.path.join(MODEL_DIR, "char2vec_%s%d.bin" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)),full_model=False)
+    char_fastcbow = FastText.load_fasttext_format(
+        os.path.join(MODEL_DIR, "char2vec_%s%d.bin" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)), full_model=False)
     char_embedding_matrix = char_fastcbow.wv.vectors
     char2index = {v: k for k, v in enumerate(char_fastcbow.wv.index2word)}
-    word_fastcbow = FastText.load_fasttext_format(os.path.join(MODEL_DIR, "word2vec_%s%d.bin" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)),full_model=False)
+    word_fastcbow = FastText.load_fasttext_format(
+        os.path.join(MODEL_DIR, "word2vec_%s%d.bin" % (EMBEDDING_MODEL_TYPE, VECTOR_LENGTH)), full_model=False)
     word_embedding_matrix = word_fastcbow.wv.vectors
     word2index = {v: k for k, v in enumerate(word_fastcbow.wv.index2word)}
 logging.info('end loading embedding')
@@ -105,13 +108,15 @@ def load_data(dtype="both", input_length=[20, 24], w2v_length=VECTOR_LENGTH):
         labels = []
         for line in open(ANT_NLP_FILE_PATH, "r", encoding="utf8"):
             line_number, sentence1, sentence2, label = line.strip().split("\t")
+            # 句子中出现连续*号,表示数字
+            star = re.compile("\*+")
+            sentence1 = remove_punctuation(star.sub("1", sentence1))
+            sentence2 = remove_punctuation(star.sub("1", sentence2))
             if dtype == "word":
-                # 句子中出现连续*号,表示数字
-                star = re.compile("\*+")
                 data_left_sentence.append(
-                    [word2index[word] for word in list(jieba.cut(star.sub("1", sentence1))) if word in word2index])
+                    [word2index[word] for word in list(jieba.cut(sentence1)) if word in word2index])
                 data_right_sentence.append(
-                    [word2index[word] for word in list(jieba.cut(star.sub("1", sentence2))) if word in word2index])
+                    [word2index[word] for word in list(jieba.cut(sentence2)) if word in word2index])
             if dtype == "char":
                 data_left_sentence.append([char2index[char] for char in sentence1 if char in char2index])
                 data_right_sentence.append([char2index[char] for char in sentence2 if char in char2index])

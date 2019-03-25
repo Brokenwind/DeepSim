@@ -1,0 +1,551 @@
+INFO: Loaded 0 templates in 0.0s
+INFO: Starting page extraction from ../resources/zhwiki-latest-pages-articles.xml.bz2.
+INFO: Using 3 extract processes.
+INFO: 13	\u6570\u5b66
+INFO: 18	\u54f2\u5b66
+INFO: 21	\u6587\u5b78
+INFO: 22	\u5386\u53f2
+INFO: 25	\u8ba1\u7b97\u673a\u79d1\u5b66
+INFO: 39	\u6c11\u65cf
+INFO: 45	\u620f\u5267
+INFO: 48	\u7535\u5f71
+INFO: 51	\u97f3\u4e50
+INFO: 53	\u7ecf\u6d4e\u5b66
+INFO: 56	\u653f\u6cbb\u5b66
+INFO: 57	\u6cd5\u5b66
+INFO: 59	\u793e\u4f1a\u5b66
+INFO: 62	\u519b\u4e8b\u5b66
+INFO: 66	\u4fe1\u606f\u5b66
+INFO: 67	\u7269\u7406\u5b66
+INFO: 70	\u5929\u6587\u5b78
+INFO: 72	\u529b\u5b66
+INFO: 74	\u5316\u5b78
+INFO: 76	\u5730\u7406\u5b66
+INFO: 79	\u6c14\u8c61\u5b66
+INFO: 78	\u5730\u8d28\u5b66
+INFO: 81	\u751f\u7269\u5b66
+INFO: 83	\u5fc3\u7406\u5b66
+INFO: 86	\u4e2d\u533b\u5b66
+INFO: 87	\u6d77\u6d0b\u5b66
+INFO: 89	\u6c34\u6587\u5b66
+INFO: 94	\u6d4b\u7ed8\u5b66
+INFO: 100	\u519c\u4e1a
+INFO: 106	\u7edf\u4e00\u8d44\u6e90\u5b9a\u4f4d\u7b26
+INFO: 112	\u8ba1\u7b97
+INFO: 114	\u6570\u636e\u7ed3\u6784
+INFO: 115	\u8bbe\u8ba1\u6a21\u5f0f
+INFO: 125	\u514b\u5229\u65af\u767b\xb7\u5948\u52a0\u7279
+INFO: 122	\u4e2d\u56fd\u8ba1\u7b97\u673a\u79d1\u5b66\u5927\u4e8b\u5e74\u8868
+INFO: 118	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd
+INFO: 126	Self
+INFO: 130	Linux\u5185\u6838
+INFO: 133	\u6797\u7eb3\u65af\xb7\u6258\u74e6\u5179
+INFO: 135	\u7406\u67e5\u5fb7\xb7\u65af\u6258\u66fc
+INFO: 136	\u81ea\u7531\u8f6f\u4ef6\u57fa\u91d1\u4f1a
+INFO: 137	2003\u5e747\u6708
+INFO: 139	\u5b6b\u4e2d\u5c71
+INFO: 140	\u64cd\u4f5c\u7cfb\u7edf
+INFO: 141	\u64cd\u4f5c\u7cfb\u7edf\u5217\u8868
+INFO: 142	Linux
+INFO: 149	GNU\u8a08\u5283
+INFO: 153	\u81ea\u7531\u8f6f\u4ef6\u8fd0\u52a8
+INFO: 157	\u6750\u6599\u79d1\u5b66
+INFO: 158	\u8bfa\u8d1d\u5c14\u5956
+INFO: 159	\u690d\u7269\u5b66
+INFO: 161	\u751f\u547d
+INFO: 165	Wiki
+INFO: 168	\u7a0b\u5e8f\u8bbe\u8ba1
+INFO: 170	\u8ba1\u7b97\u673a\u7a0b\u5e8f
+INFO: 182	\u4e2d\u56fd\u5386\u53f2
+INFO: 192	\u4eb3\u5dde\u5e02
+INFO: 210	\u8ba1\u7b97\u673a\u7f51\u7edc
+INFO: 211	\u8bed\u8a00\u5217\u8868
+INFO: 235	\u4e0a\u6d77\u5e02
+INFO: 244	\u53f2\u5bb6
+INFO: 256	\u5f00\u653e\u6e90\u4ee3\u7801
+INFO: 257	\u8ba1\u7b97\u6570\u5b66
+INFO: 258	\u9ad8\u5fb7\u7eb3
+INFO: 263	\u4e2d\u570b
+INFO: 270	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u5386\u53f2
+INFO: 275	\u5b97\u6559
+INFO: 271	\u4e2d\u83ef\u6c11\u570b
+INFO: 278	\u56fe\u4e66\u9986\u5b66
+INFO: 280	\u5e74\u8868\u5217\u8868
+INFO: 284	\u4e49\u52c7\u519b\u8fdb\u884c\u66f2
+INFO: 287	\u590f\u5546\u5468\u5e74\u8868
+INFO: 290	\u79e6\u6c49\u4e09\u56fd\u5386\u53f2\u5e74\u8868
+INFO: 291	\u4eba\u7269
+INFO: 297	\u6559\u80b2
+INFO: 299	\u8ba1\u7b97\u8bed\u8a00\u5b66
+INFO: 300	\u8bed\u97f3\u5408\u6210
+INFO: 305	\u7b2c\u4e8c\u6b21\u4e16\u754c\u5927\u6218
+INFO: 306	\u8fbd\u5b81\u7701
+INFO: 309	\u6d77\u5916\u83ef\u4eba
+INFO: 317	\u4eba\u5de5\u667a\u80fd
+INFO: 327	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u56fd\u65d7
+INFO: 330	\u6d77\u4e0a\u7530\u56ed
+INFO: 331	\u65c5\u6e38
+INFO: 333	\u9127\u9e97\u541b
+INFO: 335	\u6e38\u620f
+INFO: 342	\u81ea\u7136\u6570
+INFO: 343	\u4ee3\u6570\u6570\u57df
+INFO: 344	\u6570\u57df
+INFO: 345	\u6570\u8bba
+INFO: 349	GNU\u81ea\u7531\u6587\u6863\u8bb8\u53ef\u8bc1
+INFO: 356	\u9648\u76f8\u5c6f\u9547
+INFO: 359	\u4e2d\u56fd\u5171\u4ea7\u515a
+INFO: 373	\u664b\u5341\u516d\u56fd\u5357\u5317\u671d\u5386\u53f2\u5e74\u8868
+INFO: 374	\u4e9a\u6d32\u5386\u53f2
+INFO: 378	\u5343\u7eaa
+INFO: 380	\u968b\u5510\u4e94\u4ee3\u5341\u56fd\u5386\u53f2\u5e74\u8868
+INFO: 384	\u958b\u653e\u5167\u5bb9
+INFO: 387	TeX
+INFO: 397	\u4e16\u754c\u653f\u5340\u7d22\u5f15
+INFO: 399	\u975e\u6d32\u6b77\u53f2
+INFO: 401	\u963f\u5c14\u5df4\u5c3c\u4e9a
+INFO: 403	\u9ed1\u5ba2
+INFO: 406	\u798f\u5efa\u7701
+INFO: 407	\u5b89\u5fbd\u7701
+INFO: 410	\u7518\u8083\u7701
+INFO: 412	\u5e7f\u4e1c\u7701
+INFO: 414	\u8d35\u5dde\u7701
+INFO: 415	\u4e2d\u56fd\u7701\u7ea7\u884c\u653f\u533a\u9762\u79ef\u5217\u8868
+INFO: 416	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u5404\u7701\u7ea7\u884c\u653f\u533a\u4eba\u53e3\u5217\u8868
+INFO: 417	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u5404\u7701\u7ea7\u884c\u653f\u533a\u4eba\u53e3\u5bc6\u5ea6\u5217\u8868
+INFO: 421	\u6d77\u5357\u7701
+INFO: 423	\u6cb3\u5317\u7701
+INFO: 425	\u9ed1\u9f99\u6c5f\u7701
+INFO: 427	\u6cb3\u5357\u7701
+INFO: 429	\u6e56\u5317\u7701
+INFO: 433	\u6c5f\u82cf\u7701
+INFO: 435	\u6c5f\u897f\u7701
+INFO: 437	\u5409\u6797\u7701
+INFO: 439	\u9752\u6d77\u7701
+INFO: 441	\u9655\u897f\u7701
+INFO: 443	\u5c71\u4e1c\u7701
+INFO: 445	\u5c71\u897f\u7701
+INFO: 447	\u56db\u5ddd\u7701
+INFO: 449	\u4e91\u5357\u7701
+INFO: 451	\u6d59\u6c5f\u7701
+INFO: 453	\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a
+INFO: 455	\u5185\u8499\u53e4\u81ea\u6cbb\u533a
+INFO: 457	\u5b81\u590f\u56de\u65cf\u81ea\u6cbb\u533a
+INFO: 459	\u65b0\u7586\u7ef4\u543e\u5c14\u81ea\u6cbb\u533a
+INFO: 463	\u5317\u4eac\u5e02
+INFO: 465	\u91cd\u5e86\u5e02
+INFO: 467	\u5929\u6d25\u5e02
+INFO: 470	\u4e2d\u56fd\u884c\u653f\u533a\u5212
+INFO: 471	\u4e9a\u6d32
+INFO: 481	\u7f8e\u56fd
+INFO: 483	\u4eba\u6c11\u5e01
+INFO: 484	\u5b54\u5b50
+INFO: 486	\u6df1\u5733\u5e02
+INFO: 487	Wiki\u8edf\u9ad4
+INFO: 492	\u738b\u83f2
+INFO: 493	\u4f53\u80b2\u8fd0\u52a8
+INFO: 494	\u57c3\u91cc\u514b\xb7\u96f7\u8499
+INFO: 498	\u963f\u8bfa\xb7\u65bd\u74e6\u8f9b\u683c
+INFO: 500	\u79bb\u6563\u6570\u5b66
+INFO: 501	\u629a\u987a\u5e02
+INFO: 506	\u6570\u7406\u903b\u8f91
+INFO: 507	\u903b\u8f91
+INFO: 509	\u4e2d\u56fd\u4e1c\u5317\u5730\u533a
+INFO: 510	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u5143\u5e05
+INFO: 518	\u4fc4\u7f57\u65af
+INFO: 519	\u6731\u5fb7
+INFO: 520	\u5009\u9821\u8f38\u5165\u6cd5
+INFO: 521	\u7f16\u7a0b\u8bed\u8a00
+INFO: 527	\u516b\u738b\u4e4b\u4e71
+INFO: 532	\u65b0\u897f\u5170
+INFO: 541	\u7ef4\u57fa\u767e\u79d1
+INFO: 543	\u6cd5\u56fd
+INFO: 550	JavaScript
+INFO: 551	\u5e73\u65b9\u5343\u7c73
+INFO: 552	\u9762\u79ef
+INFO: 555	Tux
+INFO: 583	\u4e2d\u83ef\u6c11\u570b\u570b\u65d7
+INFO: 587	\u52a0\u62ff\u5927\u570b\u65d7
+INFO: 592	\u6cf0\u52d2\u65af
+INFO: 593	\u963f\u90a3\u514b\u897f\u66fc\u5fb7
+INFO: 594	\u963f\u90a3\u514b\u897f\u7f8e\u5c3c
+INFO: 595	\u4eba\u53e3\u5bc6\u5ea6
+INFO: 598	\u975e\u5178\u578b\u80ba\u708e
+INFO: 602	\u81fa\u7063\u570b\u65d7
+INFO: 607	\u6cd5\u570b\u6b77\u53f2
+INFO: 608	\u56b4\u91cd\u6025\u6027\u547c\u5438\u7cfb\u7d71\u7d9c\u5408\u75c7
+INFO: 609	\u6bd5\u8fbe\u54e5\u62c9\u65af
+INFO: 610	\u8d6b\u62c9\u514b\u5229\u7279
+INFO: 611	\u786c\u4ef6
+INFO: 622	\u52a0\u62ff\u5927\u884c\u653f\u533a\u5212
+INFO: 623	\u4e2d\u6587\u7ef4\u57fa\u767e\u79d1
+INFO: 624	\u4f0a\u62c9\u514b\u6218\u4e89
+INFO: 628	\u5b8b\u8fbd\u91d1\u590f\u5386\u53f2\u5e74\u8868
+INFO: 629	\u5143\u660e\u6e05\u5386\u53f2\u5e74\u8868
+INFO: 631	\u6587\u660e\u6447\u7bee
+INFO: 633	\u5168\u7403\u53cd\u5bf9\u5bf9\u4f0a\u6218\u4e89\u5927\u6e38\u884c
+INFO: 635	\u5f35\u570b\u69ae
+INFO: 637	\u67cf\u62c9\u56fe
+INFO: 640	\u5029\u5973\u5e7d\u9b42 (1987\u5e74\u96fb\u5f71)
+INFO: 646	\u84b2\u677e\u9f84
+INFO: 648	\u667a\u51a0\u79d1\u6280
+INFO: 654	\u4e09\u7ef4\u8ba1\u7b97\u673a\u56fe\u50cf
+INFO: 655	\u8bd7\u4eba
+INFO: 656	\u897f\u5c71\u5c45
+INFO: 657	\u5408\u80a5\u5e02
+INFO: 658	GNU\u901a\u7528\u516c\u5171\u8bb8\u53ef\u8bc1
+INFO: 659	\u5143\u7d20\u5217\u8868
+INFO: 663	\u5316\u5b66\u5bb6\u5217\u8868
+INFO: 664	\u6c22
+INFO: 668	\u7535\u8111\u6e38\u620f
+INFO: 672	Wiki\u4e4b\u9053
+INFO: 676	\u4e9a\u91cc\u58eb\u591a\u5fb7
+INFO: 681	\u4ea4\u901a
+INFO: 683	\u7db2\u8a8c
+INFO: 684	\u6ce8\u97f3\u6587
+INFO: 686	\u5510\u671d
+INFO: 687	\u897f\u85cf\u81ea\u6cbb\u533a
+INFO: 690	\u81fa\u7063
+INFO: 693	\u9c81\u8fc5
+INFO: 698	\u6b4c\u624b
+INFO: 711	\u6469\u6258\u8eca
+INFO: 712	\u6de1\u6c5f\u5927\u5b78
+INFO: 713	\u570b\u7acb\u81fa\u7063\u5e2b\u7bc4\u5927\u5b78
+INFO: 715	\u6e38\u620f\u7f16\u7a0b
+INFO: 719	\u6995\u4e9e\u5c6c
+INFO: 720	\u675c\u9d51\u82b1\u5c6c
+INFO: 721	\u53f0\u7063\u85cd\u9d72
+INFO: 723	\u677e\u5c71\u5340
+INFO: 724	\u5927\u540c\u5340 (\u81fa\u7063)
+INFO: 725	\u5167\u6e56\u5340
+INFO: 726	\u58eb\u6797\u5340
+INFO: 727	\u4fe1\u7fa9\u5340 (\u81fa\u5317\u5e02)
+INFO: 728	\u842c\u83ef\u5340
+INFO: 729	\u5927\u5b89\u5340 (\u81fa\u5317\u5e02)
+INFO: 731	\u5357\u6e2f\u5340
+INFO: 732	\u5317\u6295\u5340
+INFO: 733	\u4e2d\u6b63\u5340 (\u81fa\u5317\u5e02)
+INFO: 734	\u6587\u5c71\u5340
+INFO: 737	\u65b0\u7af9
+INFO: 740	\u81fa\u7063\u8a71
+INFO: 752	4\u67081\u65e5
+INFO: 753	\u5f8c\u8a2d
+INFO: 754	\u559c\u5287
+INFO: 755	\u60b2\u5287
+INFO: 758	\u5287\u5834
+INFO: 764	\u6848\u5934\u620f
+INFO: 789	\u4e16\u8bf4\u65b0\u8bed
+INFO: 793	\u53f2\u8bb0
+INFO: 812	\u81fa\u7063\u539f\u4f4f\u6c11\u65cf
+INFO: 824	\u6606\u660e\u5e02
+INFO: 825	\u50a3\u65cf
+INFO: 827	\u767d\u65cf
+INFO: 831	\u897f\u53cc\u7248\u7eb3\u50a3\u65cf\u81ea\u6cbb\u5dde
+INFO: 847	\u4f5b\u6559
+INFO: 852	\u5404\u56fd\u4eba\u53e3\u5217\u8868
+INFO: 854	\u56fd\u9645\u7535\u8bdd\u533a\u53f7\u5217\u8868
+INFO: 857	\u8881\u4e16\u51ef
+INFO: 861	\u5f5d\u65cf
+INFO: 867	\u516d\u827a
+INFO: 868	\u56db\u4e66\u4e94\u7ecf
+INFO: 869	\u4e16\u754c\u5404\u56fd\u548c\u5730\u533a\u9762\u79ef\u5217\u8868
+INFO: 879	\u72ac\u5112\u5b78\u6d3e
+INFO: 910	\u4f0a\u58c1\u9e20\u9c81
+INFO: 891	\u570b\u7acb\u81fa\u7063\u5927\u5b78
+INFO: 912	\u4e2d\u83ef\u6c11\u570b\u5927\u9678\u6642\u671f\u6b77\u53f2\u5e74\u8868
+INFO: 913	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u5386\u53f2\u5e74\u8868
+INFO: 919	GTK+
+INFO: 920	GIMP
+INFO: 921	\u4e94\u4ee3\u5341\u56fd
+INFO: 922	\u5b8b\u671d
+INFO: 923	\u5143\u671d
+INFO: 924	\u767e\u79d1\u5168\u4e66
+INFO: 926	\u674e\u6556
+INFO: 931	\u963f\u660c\u65cf
+INFO: 940	\u6570\u5b66\u5bb6
+INFO: 949	\u65b0\u52a0\u5761\u5386\u53f2
+INFO: 957	\u6e29\u5bb6\u5b9d
+INFO: 958	\u79e6\u59cb\u7687
+INFO: 960	\u4e16\u754c\u8bed\u8bed\u6cd5
+INFO: 965	Delphi
+INFO: 967	C\u266f
+INFO: 971	\u897f\u73ed\u7259
+INFO: 982	\u65b0\u67cf\u62c9\u56fe\u4e3b\u4e49
+INFO: 991	\u897f\u73ed\u7259\u8bed
+INFO: 986	\u5fb7\u56fd
+INFO: 993	C\u8bed\u8a00
+INFO: 999	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u653f\u6cbb
+INFO: 1013	Hello World
+INFO: 1015	\u6570\u636e\u538b\u7f29
+INFO: 1016	\u5df4\u65af\u514b\u8a9e
+INFO: 1029	\u75c5\u6bd2
+INFO: 1032	\u4e1c\u4e9a
+INFO: 1034	\u4e1c\u5357\u4e9a
+INFO: 1037	\u5b89\u4e1c\u5c3c\u5965\xb7\u73ed\u5fb7\u62c9\u65af
+INFO: 1053	\u5357\u4e9a
+INFO: 1056	\u827e\u6ecb\u75c5
+INFO: 1058	\u4eba\u985e\u514d\u75ab\u7f3a\u9677\u75c5\u6bd2
+INFO: 1061	\u9502
+INFO: 1062	\u6c7d\u6cb9
+INFO: 1064	\u827e\u6ecb\u75c5\u540d\u4eba\u5217\u8868
+INFO: 1065	\u751f\u7269\u75c5\u6bd2\u5206\u7c7b\u8868
+INFO: 1074	\u9ed8\u51ac\u7ae0
+INFO: 1075	\u963f\u90a3\u514b\u8428\u54e5\u62c9
+INFO: 1079	\u5217\u8868\u7d22\u5f15
+INFO: 1080	\u81ea\u7136\u8bed\u8a00
+INFO: 1087	\u5386\u6cd5
+INFO: 1090	\u6954\u5f62\u6587\u5b57
+INFO: 1093	\u661f\u671f
+INFO: 1096	\u7ea6\u7ff0\xb7\u6c83\u5c14\u592b\u5188\xb7\u51af\xb7\u6b4c\u5fb7
+INFO: 1103	\u56fd\u6b4c
+INFO: 1105	\u6b66\u8853
+INFO: 1108	\u5e7c\u5b66\u743c\u6797
+INFO: 1110	\u4e2d\u56fd\u56fd\u6b4c
+INFO: 1114	\u8d85\u6587\u672c\u4f20\u8f93\u534f\u8bae
+INFO: 1116	\u535a\u58eb
+INFO: 1117	\u5e08\u5085
+INFO: 1120	\u5b59\u5b50\u5175\u6cd5
+INFO: 1123	\u7a7a\u95f4\u79d1\u5b66
+INFO: 1125	\u8096\u7533\u514b\u7684\u6551\u8d4e
+INFO: 1129	\u6c49\u65af\xb7\u83ab\u62c9\u7ef4\u514b
+INFO: 1133	\u5434\u5b50
+INFO: 1134	\u5434\u8d77
+INFO: 1135	\u53f8\u9a6c\u6cd5
+INFO: 1136	\u5b59\u8191\u5175\u6cd5
+INFO: 1137	\u5b59\u8191
+INFO: 1139	\u5c09\u7f2d\u5b50
+INFO: 1140	\u516d\u97ec
+INFO: 1141	\u9ec4\u5e1d\u9634\u7b26\u7ecf
+INFO: 1143	\u4e09\u7565
+INFO: 1145	\u8003\u53e4\u5b66
+INFO: 1146	\u6d4e\u5357\u5e02
+INFO: 1149	\u63e1\u5947\u7ecf
+INFO: 1150	\u516b\u9635\u56fe
+INFO: 1151	Visual Basic
+INFO: 1153	\u6210\u8bed
+INFO: 1154	\u4e2d\u570b\u4eba
+INFO: 1156	\u5c06\u82d1
+INFO: 1158	\u5510\u592a\u5b97\u674e\u536b\u516c\u95ee\u5bf9
+INFO: 1160	\u674e\u9756
+INFO: 1161	\u536b\u516c\u5175\u6cd5\u8f91\u672c
+INFO: 1162	\u795e\u673a\u5236\u654c\u592a\u767d\u9634\u7ecf
+INFO: 1164	\u592a\u767d
+INFO: 1165	\u6b66\u7ecf\u603b\u8981
+INFO: 1166	\u864e\u94a4\u7ecf
+INFO: 1168	\u82cf\u5dde\u5e02
+INFO: 1169	\u8bb8\u6d1e
+INFO: 1170	\u4f55\u535a\u58eb\u5907\u8bba
+INFO: 1171	\u4f55\u53bb\u975e
+INFO: 1174	\u6587\u5316
+INFO: 1175	T\u7ec6\u80de
+INFO: 1176	\u767d\u8840\u7403
+INFO: 1178	\u5fae\u8f6f
+INFO: 1179	Windows 1.0
+INFO: 1180	\u82f1\u8bed
+INFO: 1182	\u8054\u5408\u56fd
+INFO: 1184	\u52d2\u5185\xb7\u7b1b\u5361\u5c14
+INFO: 1186	\u4e2d\u56fd\u5927\u9646\u9ad8\u7b49\u5b66\u6821\u5217\u8868
+INFO: 1190	\u514d\u75ab\u5b66
+INFO: 1194	\u514d\u75ab\u7cfb\u7edf
+INFO: 1195	\u7ea2\u8840\u7403
+INFO: 1201	\u5e0c\u814a
+INFO: 1205	\u5341\u4e03\u53f2\u767e\u5c06\u4f20
+INFO: 1207	\u738b\u7ee9
+INFO: 1208	\u6cb8\u77f3
+INFO: 1210	\u963f\u57fa\u7c73\u5fb7
+INFO: 1214	\u5783\u573e\u96fb\u90f5
+INFO: 1217	\u77f3\u6cb9\u5316\u5b66
+INFO: 1219	\u4e2d\u56fd\u6b66\u672f
+INFO: 1220	\u516b\u5366\u638c
+INFO: 1222	\u8463\u6d77\u5ddd
+INFO: 1228	\u9ec4\u9e64\u697c
+INFO: 1229	\u5143\u7d20\u5468\u671f\u8868
+INFO: 1230	\u56fd\u9645\u793e\u4f1a
+INFO: 1238	\u53e4\u5df4
+INFO: 1239	\u4e16\u754c\u71c3\u6cb9\u89c4\u8303
+INFO: 1240	\u6c26
+INFO: 1243	\u6c49\u5b57
+INFO: 1244	\u7a00\u6709\u6c14\u4f53
+INFO: 1247	\u4eba\u53e3
+INFO: 1248	\u65f6\u533a
+INFO: 1253	\u738b\u52c3
+INFO: 1256	\u94a0
+INFO: 1258	\u6768\u70af
+INFO: 1260	1949\u5e74
+INFO: 1265	\u94be
+INFO: 1266	\u70bc\u91d1\u672f
+INFO: 1271	\u9a86\u5bbe\u738b
+INFO: 1274	\u78b1\u91d1\u5c5e
+INFO: 1275	\u9541
+INFO: 1278	\u6587\u7269
+INFO: 1279	\u5168\u56fd\u91cd\u70b9\u6587\u7269\u4fdd\u62a4\u5355\u4f4d
+INFO: 1280	\u5317\u5927\u897f\u6d0b\u516c\u7ea6\u7ec4\u7ec7
+INFO: 1282	\u96c6\u6210\u5f00\u53d1\u73af\u5883
+INFO: 1288	\u5df4\u9b6f\u8d6b\xb7\u65af\u8cd3\u8afe\u838e
+INFO: 1293	\u591a\u7528\u6237
+INFO: 1294	\u4e16\u754c\u9057\u4ea7
+INFO: 1295	Windows 3.x
+INFO: 1296	Windows 95
+INFO: 1301	Windows 98
+INFO: 1302	\u84dd\u5c4f\u6b7b\u673a
+INFO: 1305	Windows NT
+INFO: 1306	Microsoft Windows
+INFO: 1307	DOS
+INFO: 1308	Windows 2000
+INFO: 1310	\u82f1\u56fd\u5927\u5b66\u5217\u8868
+INFO: 1313	\u56fd\u5185\u751f\u4ea7\u603b\u503c
+INFO: 1311	\u6e05\u534e\u5927\u5b66
+INFO: 1314	\u671d\u9c9c (\u79f0\u8c13)
+INFO: 1319	NTFS
+INFO: 1322	\u957f\u6625\u5e02
+INFO: 1323	\u5b8b\u4e4b\u95ee
+INFO: 1325	\u5f17\u91cc\u5fb7\u91cc\u5e0c\xb7\u5c3c\u91c7
+INFO: 1329	\u5e7f\u5dde\u5e02
+INFO: 1333	\u4e8c\u5341\u56db\u53f2
+INFO: 1338	\u78b1\u571f\u91d1\u5c5e
+INFO: 1339	Emacs
+INFO: 1340	\u78b3
+INFO: 1343	\u534f\u8c03\u4e16\u754c\u65f6
+INFO: 1344	\u65e0\u5b9a\u5f62\u78b3
+INFO: 1345	\u8f14\u52a9\u578bT\u7d30\u80de
+INFO: 1348	\u4e16\u754c\u536b\u751f\u7ec4\u7ec7
+INFO: 1351	Microsoft Office
+INFO: 1356	\u53cd\u7f8e
+INFO: 1357	\u6570\u91cf\u7ea7 (\u65f6\u95f4)
+INFO: 1359	\u751f\u7269
+INFO: 1360	\u675c\u5ba1\u8a00
+INFO: 1361	\u6c5f\u6cfd\u6c11
+INFO: 1365	\u5de6\u4f20
+INFO: 1367	Forth
+INFO: 1369	\u806f\u5408\u570b\u6703\u54e1\u570b\u5217\u8868
+INFO: 1370	\u4ee3\u8c22
+INFO: 1372	\u4e92\u8054\u7f51\u9876\u7ea7\u57df\u5217\u8868
+INFO: 1374	\u4e2d\u56fd\u79fb\u52a8
+INFO: 1375	\u539f\u751f\u8d28
+INFO: 1376	\u5929\u82b1 (\u6d88\u6b67\u4e49)
+INFO: 1380	1960\u5e74
+INFO: 1382	\u5929\u82b1
+INFO: 1388	2002\u5e74
+INFO: 1392	\u6c88\u4f7a\u671f
+INFO: 1394	\u9099\u5c71
+INFO: 1395	\u7edd\u53e5
+INFO: 1397	\u592a\u53f2
+INFO: 1398	\u77bd\u77c7
+INFO: 1399	\u5de6\u4e18\u660e
+INFO: 1401	\u6d3b\u6027\u70ad
+INFO: 1404	\u53e4\u5178\u5143\u7d20
+INFO: 1405	\u7532\u57fa\u53d4\u4e01\u57fa\u919a
+INFO: 1410	\u7ea6\u7ff0\xb7\u6d1b\u514b
+INFO: 1412	20\u4e16\u7eaa
+INFO: 1414	\u9ed1\u6697\u65f6\u4ee3
+INFO: 1418	\u98a8\u8eca
+INFO: 1420	\u98a8\u8eca (\u52d5\u529b\u6a5f)
+INFO: 1424	\u98ce\u8f66 (\u73a9\u5177)
+INFO: 1425	\u7164\u7159
+INFO: 1426	\u5218\u5e0c\u5937
+INFO: 1427	\u5b50\u4ea7
+INFO: 1433	\u521b\u4f5c\u5171\u7528
+INFO: 1435	\u957f\u5b59\u65e0\u5fcc
+INFO: 1436	\u957f\u6c5f\u4e09\u5ce1\u6c34\u5229\u67a2\u7ebd\u5de5\u7a0b
+INFO: 1438	\u5927\u5b78
+INFO: 1439	\u957f\u6c5f
+INFO: 1441	\u51b2\u529b\u8bf4
+INFO: 1442	\u6cd5\u8bed
+INFO: 1443	\u9ec4\u6cb3
+INFO: 1444	\u6797\u7eb3\u65af\u5b9a\u5f8b
+INFO: 1446	\u664f\u5a74
+INFO: 1447	\u7845
+INFO: 1460	\u4fc4\u8bed
+INFO: 1462	\u76ae\u57c3\u5c14-\u897f\u8499\xb7\u62c9\u666e\u62c9\u65af
+INFO: 1463	\u6570\u5b66\u5bb6\u5217\u8868
+INFO: 1464	1119\u5e74
+INFO: 1465	1114\u5e74
+INFO: 1468	\u5b98\u65b9\u8bed\u8a00\u5217\u8868
+INFO: 1472	\u4e39\u9ea6
+INFO: 1576	\u7f8e\u56fd\u5dde\u4efd
+INFO: 1577	\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd\u56fd\u5fbd
+INFO: 1579	\u7f8e\u56fd\u56fd\u65d7
+INFO: 1581	\u82f1\u56fd\u56fd\u65d7
+INFO: 1585	1983\u5e74
+INFO: 1589	\u4fe1\u606f\u7ba1\u7406\u7cfb\u7edf
+INFO: 1594	\u7f8e\u56fd\u603b\u7edf
+INFO: 1600	\u7ea6\u7ff0\xb7\u7f2a\u52d2
+INFO: 1604	\u5c3c\u53e4\u62c9\xb7\u54e5\u767d\u5c3c
+INFO: 1606	\u65e5\u5fc3\u8bf4
+INFO: 1609	\u79cb\u7530\u53bf
+INFO: 1616	\u5929\u4f53\u8fd0\u884c\u8bba
+INFO: 1622	\u82ac\u5170
+INFO: 1625	\u611b\u77e5\u7e23
+INFO: 1629	\u7ea6\u7ff0\u5185\u65af\xb7\u5f00\u666e\u52d2
+INFO: 1635	\u4eba\u6c11\u884c\u52a8\u515a
+INFO: 1638	\u5f00\u666e\u52d2\u5b9a\u5f8b
+INFO: 1653	\u65e5\u672c\u884c\u653f\u5340\u5283
+INFO: 1661	\u6c49\u671d
+INFO: 1674	\u56db\u4eba\u5e2e
+INFO: 1677	\u5b5f\u5b50
+INFO: 1688	\u6570\u91cf\u7ea7
+INFO: 1698	\u671d\u9c9c\u6c11\u4e3b\u4e3b\u4e49\u4eba\u6c11\u5171\u548c\u56fd
+ERROR: Processing page: 1629 \u7ea6\u7ff0\u5185\u65af\xb7\u5f00\u666e\u52d2
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 3003, in extract_process
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 631, in extract
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 759, in clean
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 2020, in dropNested
+KeyboardInterrupt
+INFO: 1700	\u5a01\u5ec9\xb7\u5409\u5c14\u4f2f\u7279
+ERROR: Processing page: 1661 \u6c49\u671d
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 3003, in extract_process
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 631, in extract
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 749, in clean
+KeyboardInterrupt
+ERROR: Processing page: 1698 \u671d\u9c9c\u6c11\u4e3b\u4e3b\u4e49\u4eba\u6c11\u5171\u548c\u56fd
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 3003, in extract_process
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 630, in extract
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 693, in wiki2text
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 2020, in dropNested
+KeyboardInterrupt
+INFO: 1712	\u8ba1\u7b97\u673a\u79d1\u5b66\u5bb6\u5217\u8868
+INFO: 1706	\u5f17\u5170\u897f\u65af\xb7\u57f9\u6839
+Process Process-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 3061, in reduce_process
+  File "/usr/lib/python3.6/multiprocessing/queues.py", line 94, in get
+    res = self._recv_bytes()
+  File "/usr/lib/python3.6/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/usr/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
+    buf = self._recv(4)
+  File "/usr/lib/python3.6/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/bin/WikiExtractor.py", line 4, in <module>
+    __import__('pkg_resources').run_script('wikiextractor==2.69', 'WikiExtractor.py')
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 658, in run_script
+    self.require(requires)[0].run_script(script_name, ns)
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 1445, in run_script
+    exec(script_code, namespace, namespace)
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 3238, in <module>
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 3228, in main
+  File "/usr/local/lib/python3.6/dist-packages/wikiextractor-2.69-py3.6.egg/EGG-INFO/scripts/WikiExtractor.py", line 2953, in process_dump
+  File "/usr/lib/python3.6/multiprocessing/queues.py", line 82, in put
+    if not self._sem.acquire(block, timeout):
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/multiprocessing/util.py", line 262, in _run_finalizers
+    finalizer()
+  File "/usr/lib/python3.6/multiprocessing/util.py", line 186, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/usr/lib/python3.6/multiprocessing/queues.py", line 191, in _finalize_join
+    thread.join()
+  File "/usr/lib/python3.6/threading.py", line 1056, in join
+    self._wait_for_tstate_lock()
+  File "/usr/lib/python3.6/threading.py", line 1072, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt

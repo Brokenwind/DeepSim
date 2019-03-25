@@ -222,10 +222,10 @@ def esim(pretrained_embedding,
 # siamese
 ###################################################
 
-def siamese(pretrained_embedding=None,
-            input_length=MAX_LEN,
-            w2v_length=300,
-            n_hidden=[64, 64, 64]):
+def siamese_base(pretrained_embedding=None,
+                 input_length=MAX_LEN,
+                 w2v_length=300,
+                 n_hidden=[64, 64, 64]):
     # 输入层
     left_input = Input(shape=(input_length,), dtype='int32')
     right_input = Input(shape=(input_length,), dtype='int32')
@@ -261,6 +261,52 @@ def siamese(pretrained_embedding=None,
                              output_shape=lambda x: (x[0][0], 1))([left_output, right_output])
 
     model = Model([left_input, right_input], [malstm_distance])
+
+    return model
+
+
+def siamese(pretrained_embedding=None,
+            input_length=MAX_LEN,
+            w2v_length=300,
+            n_hidden=[64, 64, 64]):
+    # 输入层
+    left_input = Input(shape=(input_length,), dtype='int32')
+    right_input = Input(shape=(input_length,), dtype='int32')
+
+    # 对句子embedding
+    encoded_left = pretrained_embedding(left_input)
+    encoded_right = pretrained_embedding(right_input)
+
+    # 两个LSTM共享参数
+    # # v1 一层lstm
+    # shared_lstm = CuDNNLSTM(n_hidden)
+
+    # # v2 带drop和正则化的多层lstm
+    ipt = Input(shape=(input_length, w2v_length))
+    dropout_rate = 0.5
+    x = Dropout(dropout_rate, )(ipt)
+    for i, hidden_length in enumerate(n_hidden):
+        # x = Bidirectional(CuDNNLSTM(hidden_length, return_sequences=(i!=len(n_hidden)-1), kernel_regularizer=L1L2(l1=0.01, l2=0.01)))(x)
+        x = Bidirectional(CuDNNLSTM(hidden_length, return_sequences=True, kernel_regularizer=L1L2(l1=0.01, l2=0.01)))(x)
+    attention = Attention(input_length)(x)
+    # v3 卷及网络特征层
+    # x = Conv1D(64, kernel_size=2, strides=1, padding="valid", kernel_initializer="he_uniform")(x)
+    # x_p1 = GlobalAveragePooling1D()(x)
+    # x_p2 = GlobalMaxPooling1D()(x)
+    # x = Concatenate()([x_p1, x_p2])
+    shared_lstm = Model(inputs=ipt, outputs=attention)
+
+    left_output = shared_lstm(encoded_left)
+    right_output = shared_lstm(encoded_right)
+
+    merged = Concatenate()([left_output, right_output])
+
+    out_ = Dense(1, activation='sigmoid')(merged)
+
+    # 距离函数 exponent_neg_manhattan_distance
+    #malstm_distance = Lambda(lambda x: K.exp(-K.sum(K.abs(x[0] - x[1]), axis=1, keepdims=True)),
+    #                         output_shape=lambda x: (x[0][0], 1))([left_output, right_output])
+    model = Model([left_input, right_input], [out_])
 
     return model
 

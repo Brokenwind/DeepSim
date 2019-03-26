@@ -1,5 +1,5 @@
 import re
-
+import os
 
 def remove_punctuation(line, strip_all=True):
     '''
@@ -18,3 +18,21 @@ def remove_punctuation(line, strip_all=True):
         re_punctuation = "[{}]+".format(punctuation)
         line = re.sub(re_punctuation, "", line)
     return line
+
+
+def list_all_files(rootdir):
+    '''
+    # 列出文件夹下所有文件,包括子目录
+    :param rootdir:
+    :return:
+    '''
+    _files = []
+    list = os.listdir(rootdir)
+    for i in range(0, len(list)):
+        path = os.path.join(rootdir, list[i])
+        if os.path.isdir(path):
+            _files.extend(list_all_files(path))
+        if os.path.isfile(path):
+            _files.append(path)
+
+    return _files

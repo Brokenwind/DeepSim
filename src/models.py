@@ -280,22 +280,22 @@ def siamese(pretrained_embedding=None,
     encoded_left = pretrained_embedding(left_input)
     encoded_right = pretrained_embedding(right_input)
 
-    # 两个LSTM共享参数
-    # # v1 一层lstm
-    # shared_lstm = CuDNNLSTM(n_hidden)
+    # 两个LSTM共享参
     S_inputs = Input(shape=(None,), dtype='int32')
-    embeddings = Embedding(max_features, 128)(S_inputs)
-    embeddings = Position_Embedding()(embeddings)  # 增加Position_Embedding能轻微提高准确率
-    O_seq = Attention(8, 16)([embeddings, embeddings, embeddings])
-    O_seq = GlobalAveragePooling1D()(O_seq)
-    O_seq = Dropout(0.5)(O_seq)
-    outputs = Dense(1, activation='sigmoid')(O_seq)
+    embeddings = pretrained_embedding(S_inputs)
+    # 增加Position_Embedding能轻微提高准确率
+    embeddings = Position_Embedding()(embeddings)
+    O_seq1 = Attention(4, 128)([embeddings, embeddings, embeddings])
+    O_seq1 = BatchNormalization()(O_seq1)
 
-    shared_lstm = Model(inputs=S_inputs, outputs=outputs)
+    O_seq2 = Attention(2, 128)([O_seq1, O_seq1, O_seq1])
+    O_seq2 = BatchNormalization()(O_seq2)
+
+    shared_lstm = Model(inputs=S_inputs, outputs=O_seq2)
     #print(model.summary())
 
-    left_output = shared_lstm(encoded_left)
-    right_output = shared_lstm(encoded_right)
+    left_output = shared_lstm(left_input)
+    right_output = shared_lstm(right_input)
 
     merged = Concatenate()([left_output, right_output])
 

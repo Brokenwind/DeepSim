@@ -11,6 +11,9 @@ from keras.activations import softmax
 from keras.layers import *
 from keras.models import Model
 from keras.regularizers import L1L2
+from keras.preprocessing import sequence
+
+from attention import Position_Embedding, Attention
 
 from constant import *
 
@@ -280,21 +283,16 @@ def siamese(pretrained_embedding=None,
     # 两个LSTM共享参数
     # # v1 一层lstm
     # shared_lstm = CuDNNLSTM(n_hidden)
+    S_inputs = Input(shape=(None,), dtype='int32')
+    embeddings = Embedding(max_features, 128)(S_inputs)
+    embeddings = Position_Embedding()(embeddings)  # 增加Position_Embedding能轻微提高准确率
+    O_seq = Attention(8, 16)([embeddings, embeddings, embeddings])
+    O_seq = GlobalAveragePooling1D()(O_seq)
+    O_seq = Dropout(0.5)(O_seq)
+    outputs = Dense(1, activation='sigmoid')(O_seq)
 
-    # # v2 带drop和正则化的多层lstm
-    ipt = Input(shape=(input_length, w2v_length))
-    dropout_rate = 0.5
-    x = Dropout(dropout_rate, )(ipt)
-    for i, hidden_length in enumerate(n_hidden):
-        # x = Bidirectional(CuDNNLSTM(hidden_length, return_sequences=(i!=len(n_hidden)-1), kernel_regularizer=L1L2(l1=0.01, l2=0.01)))(x)
-        x = Bidirectional(CuDNNLSTM(hidden_length, return_sequences=True, kernel_regularizer=L1L2(l1=0.01, l2=0.01)))(x)
-    attention = Attention(input_length)(x)
-    # v3 卷及网络特征层
-    # x = Conv1D(64, kernel_size=2, strides=1, padding="valid", kernel_initializer="he_uniform")(x)
-    # x_p1 = GlobalAveragePooling1D()(x)
-    # x_p2 = GlobalMaxPooling1D()(x)
-    # x = Concatenate()([x_p1, x_p2])
-    shared_lstm = Model(inputs=ipt, outputs=attention)
+    shared_lstm = Model(inputs=S_inputs, outputs=outputs)
+    #print(model.summary())
 
     left_output = shared_lstm(encoded_left)
     right_output = shared_lstm(encoded_right)

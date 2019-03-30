@@ -4,12 +4,12 @@ from keras import backend as K
 from keras.engine.topology import Layer
 
 
-class Position_Embedding(Layer):
+class PositionEmbedding(Layer):
 
     def __init__(self, size=None, mode='sum', **kwargs):
         self.size = size  # 必须为偶数
         self.mode = mode
-        super(Position_Embedding, self).__init__(**kwargs)
+        super(PositionEmbedding, self).__init__(**kwargs)
 
     def call(self, x):
         if (self.size == None) or (self.mode == 'sum'):

@@ -289,13 +289,13 @@ def result():
     X = {}
     for cfg in all_cfgs.values():
         model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
-        key_ = f"{dtype}_{input_length}"
+        key_ = "{}_{}".format(dtype, input_length)
         if key_ not in X: X[key_] = input_data(df1["sent1"], df1["sent2"], dtype=dtype, input_length=input_length)
 
     for weight, cfg in all_cfgs.items():
         K.clear_session()
         model_type, dtype, input_length, ebed_type, w2v_length, n_hidden, n_epoch, patience = cfg
-        key_ = f"{dtype}_{input_length}"
+        key_ = "{}_{}".format(dtype, input_length)
         model = get_model(cfg, weight)
         test_y_preds.append(model.predict(X[key_], batch_size=test_batch_size).reshape(-1))
 

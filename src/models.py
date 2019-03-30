@@ -295,13 +295,13 @@ def siamese(pretrained_embedding=None,
     left_output = self_attention(left_input)
     right_output = self_attention(right_input)
 
-    merged = Concatenate()([left_output, right_output])
+    # merged = Concatenate()([left_output, right_output])
 
-    out_ = Dense(1, activation='sigmoid')(merged)
+    # out_ = Dense(1, activation='sigmoid')(merged)
 
     # 距离函数 exponent_neg_manhattan_distance
-    #malstm_distance = Lambda(lambda x: K.exp(-K.sum(K.abs(x[0] - x[1]), axis=1, keepdims=True)),
-    #                         output_shape=lambda x: (x[0][0], 1))([left_output, right_output])
-    model = Model([left_input, right_input], [out_])
+    malstm_distance = Lambda(lambda x: K.exp(-K.sum(K.abs(x[0] - x[1]), axis=1, keepdims=True)),
+                             output_shape=lambda x: (x[0][0], 1))([left_output, right_output])
+    model = Model([left_input, right_input], [malstm_distance])
 
     return model

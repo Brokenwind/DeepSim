@@ -98,6 +98,7 @@ class Attention(Layer):
         O_seq = K.permute_dimensions(O_seq, (0, 2, 1, 3))
         O_seq = K.reshape(O_seq, (-1, K.shape(O_seq)[1], self.output_dim))
         O_seq = self.Mask(O_seq, Q_len, 'mul')
+
         return O_seq
 
     def compute_output_shape(self, input_shape):

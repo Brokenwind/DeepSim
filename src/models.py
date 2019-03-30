@@ -273,12 +273,8 @@ def siamese(pretrained_embedding=None,
             w2v_length=300,
             n_hidden=[64, 64, 64]):
     # 输入层
-    left_input = Input(shape=(input_length,), dtype='int32')
-    right_input = Input(shape=(input_length,), dtype='int32')
-
-    # 对句子embedding
-    encoded_left = pretrained_embedding(left_input)
-    encoded_right = pretrained_embedding(right_input)
+    left_input = Input(shape=(input_length,))
+    right_input = Input(shape=(input_length,))
 
     # 两个LSTM共享参
     attention_input = Input(shape=(None,), dtype='int32')
@@ -286,10 +282,12 @@ def siamese(pretrained_embedding=None,
     # 增加Position_Embedding能轻微提高准确率
     embeddings = PositionEmbedding()(embeddings)
     O_seq1 = Attention(4, 128)([embeddings, embeddings, embeddings])
-    O_seq1 = BatchNormalization()(O_seq1)
+    O_seq1 = Dropout(0.5)(O_seq1)
+    #O_seq1 = BatchNormalization()(O_seq1)
 
     O_seq2 = Attention(2, 128)([O_seq1, O_seq1, O_seq1])
-    O_seq2 = BatchNormalization()(O_seq2)
+    O_seq2 = GlobalAveragePooling1D()(O_seq2)
+    #O_seq2 = BatchNormalization()(O_seq2)
 
     self_attention = Model(inputs=attention_input, outputs=O_seq2)
     #print(model.summary())

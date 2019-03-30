@@ -1,5 +1,5 @@
 from get_embedding import *
-from models_new import *
+from models import *
 from keras.utils import plot_model
 
 

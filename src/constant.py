@@ -48,10 +48,10 @@ CONFIG_PATH = os.path.join(MODEL_DIR, "all_configs.json")
 
 cfgs = [
     ("siamese", "char", 24, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [100, 80, 64], 102 - 5, earlystop_patience),  # 69s
-    ("siamese", "word", 20, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [100, 80, 64], 120 - 4, earlystop_patience),  # 59s
-    ("esim", "char", 24, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 18, earlystop_patience),  # 389s
-    ("esim", "word", 20, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 21, earlystop_patience),  # 335s
-    ("decom", "char", 24, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 87 - 2, earlystop_patience),  # 84s
-    ("decom", "word", 20, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 104 - 4, earlystop_patience),  # 71s
+    #("siamese", "word", 20, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [100, 80, 64], 120 - 4, earlystop_patience),  # 59s
+    #("esim", "char", 24, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 18, earlystop_patience),  # 389s
+    #("esim", "word", 20, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 21, earlystop_patience),  # 335s
+    #("decom", "char", 24, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 87 - 2, earlystop_patience),  # 84s
+    #("decom", "word", 20, EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 104 - 4, earlystop_patience),  # 71s
     #("dssm", "both", [20, 24], EMBEDDING_MODEL_TYPE, VECTOR_LENGTH, [], 124 - 8, earlystop_patience),  # 55s
 ]

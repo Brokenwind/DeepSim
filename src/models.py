@@ -268,9 +268,10 @@ def esim(pretrained_embedding,
     q1_combined = Concatenate()([q1_encoded, q2_aligned, submult(q1_encoded, q2_aligned)])
     q2_combined = Concatenate()([q2_encoded, q1_aligned, submult(q2_encoded, q1_aligned)])
 
-    compose = Bidirectional(CuDNNLSTM(lstm_dim, return_sequences=True))
-    q1_compare = compose(q1_combined)
-    q2_compare = compose(q2_combined)
+    compose = Attention(4, 128)
+    # compose = Bidirectional(CuDNNLSTM(lstm_dim, return_sequences=True))
+    q1_compare = compose([q1_combined,q1_combined,q1_combined])
+    q2_compare = compose([q2_combined,q2_combined,q2_combined])
 
     # Aggregate
     q1_rep = apply_multiple(q1_compare, [GlobalAvgPool1D(), GlobalMaxPool1D()])

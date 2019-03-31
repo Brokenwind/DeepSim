@@ -160,7 +160,7 @@ def decomposable_attention(pretrained_embedding,
 # ESIM
 ###################################################
 
-def esim(pretrained_embedding,
+def esim_base(pretrained_embedding,
          maxlen=MAX_LEN,
          lstm_dim=300,
          dense_dim=300,
@@ -189,6 +189,77 @@ def esim(pretrained_embedding,
     encode = Bidirectional(CuDNNLSTM(lstm_dim, return_sequences=True))
     q1_encoded = encode(q1_embed)
     q2_encoded = encode(q2_embed)
+
+    # Attention
+    q1_aligned, q2_aligned = soft_attention_alignment(q1_encoded, q2_encoded)
+
+    # Compose
+    q1_combined = Concatenate()([q1_encoded, q2_aligned, submult(q1_encoded, q2_aligned)])
+    q2_combined = Concatenate()([q2_encoded, q1_aligned, submult(q2_encoded, q1_aligned)])
+
+    compose = Bidirectional(CuDNNLSTM(lstm_dim, return_sequences=True))
+    q1_compare = compose(q1_combined)
+    q2_compare = compose(q2_combined)
+
+    # Aggregate
+    q1_rep = apply_multiple(q1_compare, [GlobalAvgPool1D(), GlobalMaxPool1D()])
+    q2_rep = apply_multiple(q2_compare, [GlobalAvgPool1D(), GlobalMaxPool1D()])
+
+    # Classifier
+    merged = Concatenate()([q1_rep, q2_rep])
+
+    dense = BatchNormalization()(merged)
+    dense = Dense(dense_dim, activation='elu')(dense)
+    dense = BatchNormalization()(dense)
+    dense = Dropout(dense_dropout)(dense)
+    dense = Dense(dense_dim, activation='elu')(dense)
+    dense = BatchNormalization()(dense)
+    dense = Dropout(dense_dropout)(dense)
+    out_ = Dense(1, activation='sigmoid')(dense)
+
+    model = Model(inputs=[q1, q2], outputs=out_)
+    return model
+
+
+def esim(pretrained_embedding,
+         maxlen=MAX_LEN,
+         lstm_dim=300,
+         dense_dim=300,
+         dense_dropout=0.5):
+    '''
+    # Based on arXiv:1609.06038
+    :param pretrained_embedding:
+    :param maxlen:
+    :param lstm_dim:
+    :param dense_dim:
+    :param dense_dropout:
+    :return:
+    '''
+
+    q1 = Input(name='q1', shape=(maxlen,))
+    q2 = Input(name='q2', shape=(maxlen,))
+
+    # Embedding
+    # embedding = create_pretrained_embedding(pretrained_embedding, mask_zero=False)
+    embedding = pretrained_embedding
+    bn = BatchNormalization(axis=2)
+    q1_embed = bn(embedding(q1))
+    q2_embed = bn(embedding(q2))
+
+    # position embedding
+    q1_embed = PositionEmbedding()(q1_embed)
+    q2_embed = PositionEmbedding()(q2_embed)
+
+    # self attention
+    self_attetention = Attention(4, 128)
+    q1_encoded = self_attetention([q1_embed, q1_embed, q1_embed])
+    q2_encoded = self_attetention([q2_embed, q2_embed, q2_embed])
+    #O_seq1 = time_distributed(O_seq1, layers)
+
+    # Encode
+    # encode = Bidirectional(CuDNNLSTM(lstm_dim, return_sequences=True))
+    # q1_encoded = encode(q1_embed)
+    # q2_encoded = encode(q2_embed)
 
     # Attention
     q1_aligned, q2_aligned = soft_attention_alignment(q1_encoded, q2_encoded)
@@ -277,20 +348,26 @@ def siamese(pretrained_embedding=None,
     right_input = Input(shape=(input_length,))
 
     # 两个LSTM共享参
-    attention_input = Input(shape=(None,), dtype='int32')
+    attention_input = Input(shape=(None,))
     embeddings = pretrained_embedding(attention_input)
     # 增加Position_Embedding能轻微提高准确率
     embeddings = PositionEmbedding()(embeddings)
-    O_seq1 = Attention(4, 128)([embeddings, embeddings, embeddings])
-    O_seq1 = Dropout(0.5)(O_seq1)
-    #O_seq1 = BatchNormalization()(O_seq1)
+    O_seq1 = Attention(8, 128)([embeddings, embeddings, embeddings])
+    layers = [
+        Dense(w2v_length),
+        Dropout(0.2)
+    ]
+    O_seq1 = time_distributed(O_seq1, layers)
+    O_seq1 = GlobalAveragePooling1D()(O_seq1)
+    # O_seq1 = Dropout(0.5)(O_seq1)
+    # O_seq1 = BatchNormalization()(O_seq1)
 
-    O_seq2 = Attention(2, 128)([O_seq1, O_seq1, O_seq1])
-    O_seq2 = GlobalAveragePooling1D()(O_seq2)
-    #O_seq2 = BatchNormalization()(O_seq2)
+    # O_seq2 = Attention(2, 128)([O_seq1, O_seq1, O_seq1])
+    #O_seq2 = GlobalAveragePooling1D()(O_seq2)
+    # O_seq2 = BatchNormalization()(O_seq2)
 
-    self_attention = Model(inputs=attention_input, outputs=O_seq2)
-    #print(model.summary())
+    self_attention = Model(inputs=attention_input, outputs=O_seq1)
+    # print(model.summary())
 
     left_output = self_attention(left_input)
     right_output = self_attention(right_input)

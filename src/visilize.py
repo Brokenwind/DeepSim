@@ -11,6 +11,7 @@ ALGORITHM_TYPES = ['decom_char', 'decom_word', 'dssm_both', 'esim_char', 'esim_w
 EMBEDDING_TYPES = ['fastcbow', 'fastskip']
 STATISTIC_TITLES = ['embedding_type', 'algorithm_type', 'epochs', 'epoch_time', 'parameters', 'test_acc']
 
+#sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 1})
 
 def load_data(input_path, types, titles):
     '''
@@ -51,7 +52,7 @@ def plot_data(embedding_type, value, types):
     else:
         input_path = '../logs/fastskip/'
     data = load_data(input_path, types, LOG_TITLES)
-    sns.pointplot(x="epoch", y=value, hue="type", data=data)
+    sns.pointplot(x="epoch", y=value, hue="type", data=data,markers=['*',',','o','v','+','x'])
     plt.show()
 
 
@@ -140,9 +141,9 @@ def plot_test_acc(embedding_type):
     plot_bar(embedding_type, 'test_acc')
 
 if __name__ == '__main__':
-    # plot_val_acc('fastskip')
+    # plot_val_acc('fastcbow')
     # plot_epochs(['fastcbow'])
     # plot_epoch_time(['fastcbow'])
     # plot_parameters(['fastcbow'])
-    plot_test_acc(['fastcbow'])
+    # plot_test_acc(['fastcbow'])
 

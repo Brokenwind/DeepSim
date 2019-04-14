@@ -52,7 +52,10 @@ def plot_data(embedding_type, value, types):
     else:
         input_path = '../logs/fastskip/'
     data = load_data(input_path, types, LOG_TITLES)
-    sns.pointplot(x="epoch", y=value, hue="type", data=data,markers=['*',',','o','v','+','x'])
+    ax = sns.pointplot(x="epoch", y=value, hue="type", data=data,markers=['*',',','o','v','+','x'])
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=90, ha="right")
+    ax.set_xlabel(ax.get_xlabel(), fontsize=15)
+    ax.set_ylabel(ax.get_ylabel(), fontsize=15)
     plt.show()
 
 
@@ -90,8 +93,8 @@ def plot_val_acc(embedding_type):
     '''
     # types = ['esim_char','esim_word']
     # types = ['decom_char','decom_word']
-    # types = ['siamese_char', 'siamese_word']
-    types = ['esim_char', 'esim_word', 'decom_char', 'decom_word']
+    types = ['siamese_char', 'siamese_word']
+    # types = ['esim_char', 'esim_word', 'decom_char', 'decom_word']
     plot_data(embedding_type, 'val_acc', types)
 
 
@@ -104,7 +107,13 @@ def plot_bar(embedding_type, tile):
     '''
     data = load_data('../logs/statistics.csv', None, STATISTIC_TITLES)
     data = data[data['embedding_type'].isin(embedding_type)]
-    sns.barplot(x='algorithm_type', y=tile, data=data)
+    ax = sns.barplot(x='algorithm_type', y=tile, data=data)
+    # 设置刻度的字体大小
+    ax.set_xticklabels(ax.get_xticklabels(), fontsize=15)
+    # 设置x,y轴上的标签大小
+    ax.set_xlabel(ax.get_xlabel(), fontsize=15)
+    ax.set_ylabel(ax.get_ylabel(), fontsize=15)
+
     plt.show()
 
 
@@ -144,6 +153,6 @@ if __name__ == '__main__':
     # plot_val_acc('fastcbow')
     # plot_epochs(['fastcbow'])
     # plot_epoch_time(['fastcbow'])
-    # plot_parameters(['fastcbow'])
+     plot_parameters(['fastcbow'])
     # plot_test_acc(['fastcbow'])
 
